@@ -1,7 +1,7 @@
 import { createApp } from 'vue'
 import './style.css'
 import App from './App.vue'
-import { createRouter, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import pages from './routes'
 import axios from 'axios'
 // 1. Define route components.
@@ -17,7 +17,7 @@ const routes = pages
 // keep it simple for now.
 const router = createRouter({
   // 4. Provide the history implementation to use. We are using the hash history for simplicity here.
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes, // short for `routes: routes`
 })
 
@@ -35,12 +35,12 @@ async function validateAuth() {
 router.beforeEach(async (to, from) => {
   if (
     // make sure the user is authenticated
-    await validateAuth() && 
+    await !validateAuth() && 
     // ❗️ Avoid an infinite redirect
-    to.name !== 'Login'
+    to.name !== 'login'
   ) {
     // redirect the user to the login page
-    return { name: 'Login' }
+    return { path: '/login' }
   }
 })
 
