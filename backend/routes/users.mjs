@@ -33,7 +33,7 @@ router.get("/", async (req, res, next) => {
 });
 
 router.get("/test", (req, res) => {
-  console.log(tokenValidation(req.headers.authorization))
+  console.log(tokenValidation(req.headers.authorization, res))
 })
 
 router.get("/:id", (req, res) => {

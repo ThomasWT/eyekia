@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 
-export function tokenValidation(token) {
+export function tokenValidation(token, res) {
     if (!token) {
       return res.status(401).json({ message: "No token provided" });
     }
