@@ -32,10 +32,6 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/test", (req, res) => {
-  console.log(tokenValidation(req.headers.authorization, res))
-})
-
 router.get("/:id", (req, res) => {
   const { id } = req.params;
 
