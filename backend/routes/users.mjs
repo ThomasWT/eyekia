@@ -4,22 +4,16 @@ import { ObjectId } from "mongodb";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
+
+import { tokenValidation } from "../token.mjs";
+
 var router = express.Router();
 
 const usersCollection = client.db("eyekia").collection("users");
 
 /* GET users listing. */
 router.get("/", async (req, res, next) => {
-  const token = req.headers.authorization;
-
-  if (!token) {
-    return res.status(401).json({ message: "No token provided" });
-  }
-
-  jwt.verify(token, process.env.SECRET, (err, decoded) => {
-    if (err) {
-      return res.status(401).json({ message: "Invalid token" });
-    }
+  if (tokenValidation(req.headers.authorization)) {
     try {
       usersCollection
         .find({}, {
@@ -35,8 +29,12 @@ router.get("/", async (req, res, next) => {
     } catch (error) {
       res.status(400).send("Invalid ID");
     }
-  });
+  }
 });
+
+router.get("/test", (req, res) => {
+  console.log(tokenValidation(req.headers.authorization))
+})
 
 router.get("/:id", (req, res) => {
   const { id } = req.params;

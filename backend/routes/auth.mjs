@@ -5,6 +5,9 @@ import bodyParser from "body-parser";
 import { client } from "../connectToDb.mjs";
 import dotenv from 'dotenv';
 dotenv.config();
+
+import { tokenValidation } from "../token.mjs";
+
 const router = express.Router();
 
 router.use(bodyParser.json());
@@ -40,17 +43,7 @@ router.post("/login", async (req, res) => {
 });
 
 router.post("/createuser", async (req, res) => {
-  const token = req.headers.authorization;
-
-  if (!token) {
-    return res.status(401).json({ message: "No token provided" });
-  }
-
-  jwt.verify(token, secretKey, (err, decoded) => {
-    if (err) {
-      return res.status(401).json({ message: "Invalid token" });
-    }
-
+ if(tokenValidation(req.headers.authorization)) {
     const { password, username, email, image, role } = req.body;
     bcrypt.genSalt(saltRounds, (err, salt) => {
       if (err) throw err;
@@ -61,7 +54,7 @@ router.post("/createuser", async (req, res) => {
         res.send(hash)
       });
     });
-  });
-});
+  }
+})
 
 export default router;
