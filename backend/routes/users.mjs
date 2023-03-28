@@ -13,7 +13,7 @@ const usersCollection = client.db("eyekia").collection("users");
 
 /* GET users listing. */
 router.get("/", async (req, res, next) => {
-  if (tokenValidation(req.headers.authorization)) {
+  if (tokenValidation(req.headers.authorization, res)) {
     try {
       usersCollection
         .find({}, {

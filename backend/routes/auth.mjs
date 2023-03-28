@@ -42,9 +42,9 @@ router.post("/login", async (req, res) => {
   });
 });
 
-router.post("/createuser", async (req, res) => {
- if(tokenValidation(req.headers.authorization)) {
-    const { password, username, email, image, role } = req.body;
+router.post("/generatepassword", async (req, res) => {
+ if(tokenValidation(req.headers.authorization, res)) {
+    const { password } = req.body;
     bcrypt.genSalt(saltRounds, (err, salt) => {
       if (err) throw err;
 

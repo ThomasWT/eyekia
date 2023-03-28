@@ -5,7 +5,7 @@ export function tokenValidation(token, res) {
       return res.status(401).json({ message: "No token provided" });
     }
     
-    jwt.verify(token, process.env.SECRET, (err, decoded) => {
+    return jwt.verify(token, process.env.SECRET, (err, decoded) => {
       if (err) {
         return res.status(401).json({ message: "Invalid token" });
       } else {
