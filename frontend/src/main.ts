@@ -33,14 +33,18 @@ async function validateAuth() {
 }
 
 router.beforeEach(async (to, from) => {
+  const tokenValid = await validateAuth()
   if (
     // make sure the user is authenticated
-    await !validateAuth() && 
+    !tokenValid && 
     // ❗️ Avoid an infinite redirect
-    to.name !== 'login'
+    to.path !== '/login'
   ) {
     // redirect the user to the login page
     return { path: '/login' }
+  }
+  if(tokenValid && (to.path == '/login' || to.path == '/')) {
+    return {path: '/dashboard/overview'}
   }
 })
 
