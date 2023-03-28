@@ -7,9 +7,12 @@
                 <div class="metric">
                     <p class="text-5xl font-bold text-purple-500">25</p>
                 </div>
-                <div class="bg-green-300 px-2 font-bold rounded-md text-green-600 text-sm py-1 shadow-lg">
+                <transition name="slide-fade">
+                    <div v-show="badge" class="bg-green-300 px-2 font-bold rounded-md text-green-600 text-sm py-1 shadow-lg">
                     19% increase
                 </div>
+                </transition>
+            
             </div>
         </div>
 
@@ -30,7 +33,8 @@ interface series {
 
 export default defineComponent({
     name: 'dashboard',
-    data(): { options: any, series: series[] } {
+    data(): { badge: boolean, options: any, series: series[] } {
+        const badge = false;
         const options = {
             chart: {
                 id: 'vuechart-example',
@@ -44,10 +48,10 @@ export default defineComponent({
                 animations: {
                     enabled: true,
                     easing: 'easeinout',
-                    speed: 300,
+                    speed: 800,
                     animateGradually: {
                         enabled: true,
-                        delay: 150
+                        delay: 1000
                     },
                     dynamicAnimation: {
                         enabled: true,
@@ -85,7 +89,34 @@ export default defineComponent({
             name: 'series-1',
             data: [Math.floor(Math.random() * 101), Math.floor(Math.random() * 101), Math.floor(Math.random() * 101), Math.floor(Math.random() * 101), Math.floor(Math.random() * 101), Math.floor(Math.random() * 101), Math.floor(Math.random() * 101),]
         }]
-        return { options, series };
+        return { options, series, badge };
     },
+    mounted() {
+        setTimeout(() => {
+            this.badge = true;
+        }, 200)
+      
+    }
 })
 </script>
+
+<style lang="scss" scoped>
+/*
+  Enter and leave animations can use different
+  durations and timing functions.
+*/
+.slide-fade-enter-active {
+    transform: translateY(0px);
+    transition: all 0.8s ease-out;
+}
+
+.slide-fade-leave-active {
+    transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+    transform: translateY(20px);
+    opacity: 0;
+}
+</style>
