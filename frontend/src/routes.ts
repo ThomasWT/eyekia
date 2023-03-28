@@ -4,6 +4,8 @@ import dashboard from './pages/dashboard.vue'
 
 //overview
 import overview from './dashboards/overview.vue'
+import socials from './dashboards/socials.vue'
+import teams from './dashboards/teams.vue'
 
 export default [
   { "path": "/", name: 'frontpage', component: login },
@@ -14,7 +16,16 @@ export default [
       {
         path: 'overview',
         component: overview,
-      }]
+      },
+      {
+        path: 'socials',
+        component: socials,
+      },
+      {
+        path: 'teams',
+        component: teams,
+      },
+    ]
   }
 ]
 
