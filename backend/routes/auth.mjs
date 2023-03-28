@@ -1,12 +1,11 @@
 import express from "express";
-import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import bodyParser from "body-parser";
 import { client } from "../connectToDb.mjs";
 import dotenv from 'dotenv';
 dotenv.config();
 
-import { tokenValidation } from "../token.mjs";
+import { tokenValidation, generateToken } from "../token.mjs";
 
 const router = express.Router();
 
@@ -30,14 +29,14 @@ router.post("/login", async (req, res) => {
     return;
   }
 
-  bcrypt.compare(password + secretKey, user.password, (err, result) => {
+  bcrypt.compare(password + process.env.SECRET, user.password, (err, result) => {
     if (err) throw err;
     if (!result) {
       res.status(401).send("Incorrect password or username");
       return;
     }
 
-    const token = jwt.sign({ id: user.id }, secretKey, { expiresIn: "1h" });
+    const token = generateToken(user.id)
     res.send({ token });
   });
 });

@@ -1,7 +1,6 @@
 import { client } from "../connectToDb.mjs";
 import express from "express";
 import { ObjectId } from "mongodb";
-import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -24,10 +23,10 @@ router.get("/", async (req, res, next) => {
           res.send(result);
         })
         .catch((err) => {
-          res.status(404).send("User not found");
+          res.status(404).send("No results");
         });
     } catch (error) {
-      res.status(400).send("Invalid ID");
+      res.status(500).send("Something went wrong");
     }
   }
 });
@@ -52,7 +51,7 @@ router.get("/:id", (req, res) => {
         }
       });
   } catch (error) {
-    res.status(400).send("Invalid ID");
+    res.status(400).send("invalid ID. please use /users/{user.id}");
   }
 });
 
