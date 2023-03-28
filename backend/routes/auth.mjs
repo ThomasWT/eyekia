@@ -57,7 +57,7 @@ router.post("/generatepassword", async (req, res) => {
 })
 
 router.post("/validatetoken", async (req, res) => {
-    res.status(tokenValidation(req.body.token, res) ? 200 : 401).send(tokenValidation(req.body.token, res))
+    tokenValidation(req.body.token, res) ? res.status(200).send("valid") : null
  })
 
 export default router;
