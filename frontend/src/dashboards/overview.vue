@@ -2,7 +2,7 @@
     <div>
         <h1 class="font-bold text-4xl mb-6">Overview</h1>
             <TransitionGroup class="flex" name="slide-fade" tag="div" :css="false" @enter="onEnter">
-                <kpi class="opacity-0" v-show="show" :data-index="index" v-for="(n, index) in 4" :key="n"></kpi>
+                <kpi class="opacity-0" :class="[index == 0 ? 'ml-0' : '', index == 3 ? 'mr-0' : '']" v-show="show" :data-index="index" v-for="(n, index) in 4" :key="n"></kpi>
             </TransitionGroup>
     </div>
 </template>
@@ -45,7 +45,7 @@ export default defineComponent({
 */
 .slide-fade-enter-active {
     transform: translateY(0px);
-    transition: all 0.3s ease-out;
+    transition: all 0.5s ease-out;
 }
 
 .slide-fade-leave-active {
