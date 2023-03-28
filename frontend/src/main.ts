@@ -4,6 +4,9 @@ import App from './App.vue'
 import { createRouter, createWebHistory } from 'vue-router';
 import pages from './routes'
 import axios from 'axios'
+import VueApexCharts from "vue3-apexcharts";
+
+
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
 
@@ -52,4 +55,4 @@ router.beforeEach(async (to, from) => {
   }
 })
 
-createApp(App).use(router).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
+createApp(App).use(router).use(VueApexCharts).component('font-awesome-icon', FontAwesomeIcon).mount('#app')

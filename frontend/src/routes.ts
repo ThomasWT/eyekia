@@ -6,6 +6,7 @@ import dashboard from './pages/dashboard.vue'
 import overview from './dashboards/overview.vue'
 import socials from './dashboards/socials.vue'
 import teams from './dashboards/teams.vue'
+import settings from './dashboards/settings.vue'
 
 export default [
   { "path": "/", name: 'frontpage', component: login },
@@ -24,6 +25,10 @@ export default [
       {
         path: 'teams',
         component: teams,
+      },
+      {
+        path: 'settings',
+        component: settings,
       },
     ]
   }

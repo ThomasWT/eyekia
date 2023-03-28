@@ -1,7 +1,7 @@
 <template>
     <div class="dashboard flex bg-gray-100">
        <navigation />
-        <div class="px-12 pt-8">
+        <div class="px-12 pt-8 w-[calc(100vw-24rem)]">
             <router-view></router-view>
         </div>
    

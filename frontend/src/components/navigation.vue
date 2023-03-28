@@ -13,21 +13,17 @@
                         :icon="link.icon" /> {{ link.name }}</router-link>
             </div>
         </div>
-        
-    <!--     <div class="flex h-32 justify-center items-center w-full">
-            <img class="w-12 h-12 mr-4 rounded-full shadow-lg border-2 border-purple-500 mb-2"
-                src="https://pbs.twimg.com/profile_images/1615754953393307652/Pdjf6vpq_400x400.jpg" alt="Default avatar">
-            <p class="font-bold">Thomas Thomsen</p>
-        </div> -->
-
-
         <div class="pages px-16 flex flex-col justify-start absolute w-full bottom-12">
-            <div class="cursor-pointer px-4  w-full py-2 my-2  rounded-lg flex items-center font-bold text-gray-500 hover:bg-purple-100 transition-all">
-                <font-awesome-icon icon="fa-solid fa-gears" class="mr-3" /> Settings
+            <router-link
+                class=" w-full py-2 my-2 px-4 rounded-lg flex items-center font-bold text-gray-500 hover:bg-purple-100 transition-all"
+                :class="{ '!text-purple-500 bg-purple-100': $route.path == '/dashboard/settings' }"
+                :to="{ path: '/dashboard/settings', replace: false }"> <font-awesome-icon class="mr-3"
+                    icon="fa-solid fa-gears" /> Settings</router-link>
+            <div @click="logout"
+                class="cursor-pointer  px-4 w-full py-2 my-2 rounded-lg flex items-center font-bold text-gray-500 hover:bg-purple-100 transition-all">
+                <font-awesome-icon icon="fa-solid fa-arrow-right-from-bracket" class="mr-3" /> Logout
             </div>
-            <div @click="logout" class="cursor-pointer  px-4 w-full py-2 my-2 rounded-lg flex items-center font-bold text-gray-500 hover:bg-purple-100 transition-all">
-                <font-awesome-icon icon="fa-solid fa-arrow-right-from-bracket" class="mr-3" /> logout
-            </div>
+         
         </div>
     </div>
 </template>
@@ -67,7 +63,7 @@ export default defineComponent({
     methods: {
         logout() {
             sessionStorage.clear();
-            this.$router.push({ path: '/login', replace: true})
+            this.$router.push({ path: '/login', replace: true })
         }
     }
 })
