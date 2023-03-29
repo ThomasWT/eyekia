@@ -1,7 +1,7 @@
 <template>
     <div class="dashboard flex bg-purple-50 h-auto min-h-screen">
        <navigation />
-        <div class="ml-[23rem] px-12 pt-8 w-[calc(100vw-24rem)]">
+        <div class="ml-[24rem] px-12 pt-8 w-[calc(100vw-25.5rem)]">
             <router-view></router-view>
         </div>
     </div>

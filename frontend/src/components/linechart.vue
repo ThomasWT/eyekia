@@ -13,7 +13,7 @@
                 </div>
             </div>
 
-            <apexchart type="line" height="" :options="options" :series="series"></apexchart>
+            <apexchart type="line" height="300" :options="options" :series="series"></apexchart>
         </div>
     </div>
 </template>
