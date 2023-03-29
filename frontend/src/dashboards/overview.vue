@@ -1,9 +1,10 @@
 <template>
     <div>
         <h1 class="font-bold text-4xl mb-6">Overview</h1>
-            <TransitionGroup class="flex" name="slide-fade" tag="div" :css="false" @enter="onEnter">
-                <kpi class="opacity-0" :class="[index == 0 ? 'ml-0' : '', index == 3 ? 'mr-0' : '']" v-show="show" :data-index="index" v-for="(n, index) in 4" :key="n"></kpi>
-            </TransitionGroup>
+        <TransitionGroup class="flex" name="slide-fade" tag="div" :css="false" @enter="onEnter">
+            <kpi class="opacity-0" :class="[index == 0 ? 'ml-0' : '', index == 3 ? 'mr-0' : '']" v-show="show"
+                :data-index="index" v-for="(kpi, index) in kpis" :metricData="kpi" :key="kpi"></kpi>
+        </TransitionGroup>
     </div>
 </template>
 
@@ -11,15 +12,44 @@
 import { defineComponent } from 'vue';
 import kpi from '../components/kpi.vue'
 import gsap from 'gsap'
+import kpiType from './models/kpi'
 
 export default defineComponent({
     name: 'dashboard',
     components: {
         kpi
     },
-    data(): { show: boolean } {
+    data(): { show: boolean, kpis: kpiType[] } {
         const show = false
-        return { show }
+
+        const kpis = [
+            {
+                name: 'Sales online',
+                metric: 34,
+                compare: 87,
+                comparedTo: 'yesterday',
+            },
+            {
+                name: 'Sales In Stores',
+                metric: 167,
+                compare: -43,
+                comparedTo: 'last month',
+            },
+            {
+                name: 'Social engagements',
+                metric: 432,
+                compare: 135,
+                comparedTo: 'last week',
+            },
+            {
+                name: 'Solved support tickets',
+                metric: 69,
+                compare: -12,
+                comparedTo: 'last 2 week',
+            },
+        ]
+
+        return { show, kpis }
     },
     mounted() {
         this.show = true;

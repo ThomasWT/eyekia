@@ -1,22 +1,20 @@
 <template>
     <div class="kpi flex flex-col w-[25vw] h-36 bg-white rounded-2xl shadow-lg mx-3 pt-4 pb-6 overflow-hidden">
         <div class="px-6">
-            <p class="text-gray-500 font-bold">Likes</p>
+            <p class="text-gray-500 font-bold mb-2">{{ metricData.name }}</p>
             <div class="flex justify-between items-center">
 
                 <div class="metric">
                     <p class="text-5xl font-bold text-purple-500">
-                        <numberComponent :val="randomNumber"></numberComponent>
+                        <numberComponent :val="metricData.metric"></numberComponent>
                     </p>
                 </div>
                 <transitionGroup name="slide-fade">
-                    <div v-show="badge"
-                        class="px-2 font-bold rounded-md  text-sm py-1 shadow-lg text-center"
-                        :class="[badgePerc < 0 ? 'bg-red-300 text-red-600' : 'bg-green-300 text-green-600']"
-                        >
-                        <numberComponent :val="badgePerc" :duration="1" :delay="0.5"></numberComponent>% {{ badgePerc < 0 ? 'decrease' : 'increase' }}
-                    </div>
-                    <p class="font-light text-xs text-gray-400 mt-2">compared to yesterday</p>
+                    <div v-show="badge" class="px-2 font-bold rounded-md  text-sm py-1 shadow-lg text-center"
+                        :class="[metricData.compare < 0 ? 'bg-red-300 text-red-500' : 'bg-green-300 text-green-600']">
+                        <numberComponent :val="metricData.compare" :duration="1" :delay="0"></numberComponent>% {{ metricData.compare < 0
+                            ? 'decrease' : 'increase' }} </div>
+                            <p class="font-light text-xs text-gray-400 mt-2">compared to {{ metricData.comparedTo }}</p>
                 </transitionGroup>
 
             </div>
@@ -30,9 +28,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import numberComponent from './numberComponent.vue';
-
+import kpiType  from '../dashboards/models/kpi';
 interface series {
     name: string,
     data: number[]
@@ -40,6 +38,12 @@ interface series {
 
 export default defineComponent({
     name: 'dashboard',
+    props: {
+        metricData: {
+            type: Object as PropType<kpiType>,
+            required: true,
+        }
+    },
     components: {
         numberComponent
     },
@@ -75,8 +79,8 @@ export default defineComponent({
                 padding: {
                     left: -10,
                     right: -10,
-                    bottom: -7,
-                    top: -10
+                    bottom: 1,
+                    top: -12
                 },
             },
             xaxis: {
@@ -89,6 +93,9 @@ export default defineComponent({
                 labels: {
                     show: false
                 }
+            },
+            tooltip: {
+                enabled: false
             },
             dataLabels: {
                 enabled: false
