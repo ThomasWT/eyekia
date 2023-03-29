@@ -2,29 +2,18 @@
     <div>
         <h1 class="font-bold text-4xl mb-2">Overview</h1>
         <div class="kpi mb-12">
-            <transition-group class="flex" name="slide-fade" tag="div" :css="false" @enter="onEnter">
+            <transition-group class="flex" name="slide-fade" tag="div" :css="false" @enter="onEnterKpi">
                 <kpi class="opacity-0" :class="[index == 0 ? 'ml-0' : '', index == 3 ? 'mr-0' : '']" v-show="show"
                     :data-index="index" v-for="(kpi, index) in kpis" :metricData="kpi" :key="index"></kpi>
             </transition-group>
         </div>
-
-        <div class="charts flex mb-6">
-            <transition name="slide-fade">
-                <linechart v-show="show"></linechart>
-            </transition>
-            <transition name="slide-fade">
-                <onlineorders v-show="show"></onlineorders>
-            </transition>
-        </div>
-
-        <div class="stats flex">
-            <transition name="slide-fade">
-                <countries v-show="show"></countries>
-            </transition>
-            <transition name="slide-fade">
-                <onlinevsstores v-show="show"></onlinevsstores>
-            </transition>
-        </div>
+        
+        <transition-group class="flex flex-wrap" name="slide-fade" tag="div" :css="false" @enter="onEnterCard">
+            <linechart class="opacity-0 mb-6 mt-4" :data-index="0" :key="0" v-show="show"></linechart>
+            <onlineorders class="opacity-0 mb-6 mt-4" :data-index="1" :key="1" v-show="show"></onlineorders>
+            <countries class="opacity-0" :data-index="2" :key="2" v-show="show"></countries>
+            <onlinevsstores class="opacity-0" :data-index="3" :key="3" v-show="show"></onlinevsstores>
+        </transition-group>
     </div>
 </template>
 
@@ -80,15 +69,26 @@ export default defineComponent({
         return { show, kpis }
     },
     mounted() {
-        this.show = true;
+            this.show = true;
+      
     },
     methods: {
-        onEnter(el: any, done: any) {
+        onEnterKpi(el: any, done: any) {
             gsap.to(el, {
                 opacity: 1,
                 translateY: '20px',
                 height: '9rem',
                 delay: el.dataset.index * 0.20,
+                onComplete: done
+            })
+        },
+        onEnterCard(el: any, done: any) {
+            gsap.to(el, {
+                opacity: 1,
+                translateY: '-20px',
+                duration: 0.8,
+                height: 'auto',
+                delay: (el.dataset.index) * 0.15,
                 onComplete: done
             })
         }
