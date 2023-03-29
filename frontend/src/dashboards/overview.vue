@@ -10,10 +10,10 @@
 
         <div class="charts flex">
             <transition name="slide-fade">
-                <linechart></linechart>
+                <linechart v-show="show"></linechart>
             </transition>
             <transition name="slide-fade">
-                <onlineorders></onlineorders>
+                <onlineorders v-show="show"></onlineorders>
             </transition>
         </div>
     </div>

@@ -1,5 +1,5 @@
 <template>
-    <div class="dashboard flex bg-gray-100">
+    <div class="dashboard flex bg-purple-50">
        <navigation />
         <div class="px-12 pt-8 w-[calc(100vw-24rem)]">
             <router-view></router-view>

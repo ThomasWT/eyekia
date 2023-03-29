@@ -42,7 +42,7 @@
                         €{{ order.price }}
                     </td>
                     <td class="pr-3 py-4 text-right">
-                        <span :class="{'bg-green-100 text-green-800' : order.state == 'completed', 'bg-yellow-100 text-yellow-800' : order.state == 'awaiting', 'bg-red-100 text-red-800' : order.state == 'cancelled'}" class="text-sm font-medium px-2.5 py-0.5 rounded capitalize">{{ order.state }}</span>
+                        <span :class="{'bg-green-100 text-green-600' : order.state == 'completed', 'bg-yellow-100 text-yellow-600' : order.state == 'awaiting', 'bg-red-100 text-red-500' : order.state == 'cancelled'}" class="text-sm font-medium px-2.5 py-0.5 rounded capitalize">{{ order.state }}</span>
                     </td>
                 </tr>
                
