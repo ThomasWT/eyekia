@@ -25,5 +25,5 @@ jobs:
       # uses: Judahh/nodeBuild@e4d66d1cd2a1fa5d84e67389a08c84e93bb8efed
       uses: Judahh/nodeBuild@0.0.1
       with:
-        # Folder Name
+        # frontend
         node_version: 18.2 # default is production
