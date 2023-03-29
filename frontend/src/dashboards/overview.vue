@@ -21,6 +21,9 @@
             <transition name="slide-fade">
                 <countries v-show="show"></countries>
             </transition>
+            <transition name="slide-fade">
+                <onlinevsstores v-show="show"></onlinevsstores>
+            </transition>
         </div>
     </div>
 </template>
@@ -33,6 +36,7 @@ import {kpiType} from './models/graphtypes'
 import linechart from '../components/linechart.vue'
 import onlineorders from '../components/onlineorders.vue'
 import countries from '../components/countries.vue'
+import onlinevsstores from '../components/onlinevsstore.vue'
 
 export default defineComponent({
     name: 'dashboard',
@@ -40,7 +44,8 @@ export default defineComponent({
         kpi,
         linechart,
         onlineorders,
-        countries
+        countries,
+        onlinevsstores
     },
     data(): { show: boolean, kpis: kpiType[] } {
         const show = false
