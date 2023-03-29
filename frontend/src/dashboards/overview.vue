@@ -7,7 +7,7 @@
                     :data-index="index" v-for="(kpi, index) in kpis" :metricData="kpi" :key="index"></kpi>
             </transition-group>
         </div>
-        
+
         <transition-group class="flex flex-wrap" name="slide-fade" tag="div" :css="false" @enter="onEnterCard">
             <linechart class="opacity-0 mb-6 mt-4" :data-index="0" :key="0" v-show="show"></linechart>
             <onlineorders class="opacity-0 mb-6 mt-4" :data-index="1" :key="1" v-show="show"></onlineorders>
@@ -86,7 +86,7 @@ export default defineComponent({
             gsap.to(el, {
                 opacity: 1,
                 translateY: '-20px',
-                duration: 0.8,
+                duration: 0.5,
                 height: 'auto',
                 delay: (el.dataset.index) * 0.15,
                 onComplete: done
