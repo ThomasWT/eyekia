@@ -5,6 +5,7 @@ import cors from 'cors';
 
 import usersRouter from './routes/users.mjs'
 import authRouter from './routes/auth.mjs';
+import statsRouter from './routes/stats.mjs';
 
 const app = express();
 const port = 3000;
@@ -15,6 +16,7 @@ app.use(cors());
 connectToMongoDB()
 
 app.use('/auth', authRouter);
+app.use('/stats', statsRouter);
 app.use("/users", usersRouter);
 
 app.get('/', (req, res) => {

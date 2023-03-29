@@ -1,9 +1,9 @@
 <template>
-    <div>
+    <div v-show="!isLoading">
         <h1 class="font-bold text-4xl mb-2">Overview</h1>
         <div class="kpi mb-12 w-full">
             <transition-group class="flex w-full" name="slide-fade" tag="div" :css="false" @enter="onEnterKpi">
-                <kpi class="opacity-0" :class="[index == 0 ? 'ml-0' : '', index == 3 ? 'mr-0' : '']" v-show="show"
+                <kpi class="opacity-0" :class="[(index == 0 ? 'ml-0' : ''), (index == 3 ? 'mr-0' : '')]" v-show="show"
                     :data-index="index" v-for="(kpi, index) in kpis" :metricData="kpi" :key="index"></kpi>
             </transition-group>
         </div>
@@ -21,11 +21,12 @@
 import { defineComponent } from 'vue';
 import kpi from '../components/kpi.vue'
 import gsap from 'gsap'
-import {kpiType} from './models/graphtypes'
 import linechart from '../components/linechart.vue'
 import onlineorders from '../components/onlineorders.vue'
 import countries from '../components/countries.vue'
 import onlinevsstores from '../components/onlinevsstore.vue'
+import StatsService from '../dataservice/stats'
+
 
 export default defineComponent({
     name: 'dashboard',
@@ -36,41 +37,21 @@ export default defineComponent({
         countries,
         onlinevsstores
     },
-    data(): { show: boolean, kpis: kpiType[] } {
+    setup() {
+    const statsService = new StatsService();
+    statsService.fetchKpis();
+
+    return {
+      kpis: statsService.getKpis(),
+      isLoading: statsService.isLoading()
+    };
+  },
+    data(): { show: boolean } {
         const show = false
-
-        const kpis = [
-            {
-                name: 'Sales online',
-                metric: 34,
-                compare: 87,
-                comparedTo: 'yesterday',
-            },
-            {
-                name: 'Sales In Stores',
-                metric: 167,
-                compare: -43,
-                comparedTo: 'last month',
-            },
-            {
-                name: 'Social engagements',
-                metric: 432,
-                compare: 135,
-                comparedTo: 'last week',
-            },
-            {
-                name: 'Solved support tickets',
-                metric: 69,
-                compare: -12,
-                comparedTo: 'last 2 week',
-            },
-        ]
-
-        return { show, kpis }
+        return { show }
     },
-    mounted() {
-            this.show = true;
-      
+    async mounted() {
+        this.show = true;
     },
     methods: {
         onEnterKpi(el: any, done: any) {
