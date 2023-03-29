@@ -10,8 +10,8 @@
                     </p>
                 </div>
                 <transitionGroup name="slide-fade">
-                    <div v-show="badge" class="px-2 font-bold rounded-md  text-sm py-1 shadow-lg text-center"
-                        :class="[metricData.compare < 0 ? 'bg-red-300 text-red-500' : 'bg-green-300 text-green-600']">
+                    <div v-show="badge" class="px-2 font-bold rounded-md  text-sm py-1 shadow-md text-center"
+                        :class="[metricData.compare < 0 ? 'bg-red-100 text-red-400' : 'bg-green-100 text-green-600']">
                         <numberComponent :val="metricData.compare" :duration="1" :delay="0"></numberComponent>% {{ metricData.compare < 0
                             ? 'decrease' : 'increase' }} </div>
                             <p class="font-light text-xs text-gray-400 mt-2">compared to {{ metricData.comparedTo }}</p>
