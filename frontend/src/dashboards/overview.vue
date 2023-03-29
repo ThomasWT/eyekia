@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="font-bold text-4xl mb-6">Overview</h1>
+        <h1 class="font-bold text-4xl mb-2">Overview</h1>
         <div class="kpi mb-12">
             <transition-group class="flex" name="slide-fade" tag="div" :css="false" @enter="onEnter">
                 <kpi class="opacity-0" :class="[index == 0 ? 'ml-0' : '', index == 3 ? 'mr-0' : '']" v-show="show"
@@ -8,12 +8,18 @@
             </transition-group>
         </div>
 
-        <div class="charts flex">
+        <div class="charts flex mb-6">
             <transition name="slide-fade">
                 <linechart v-show="show"></linechart>
             </transition>
             <transition name="slide-fade">
                 <onlineorders v-show="show"></onlineorders>
+            </transition>
+        </div>
+
+        <div class="stats flex">
+            <transition name="slide-fade">
+                <countries v-show="show"></countries>
             </transition>
         </div>
     </div>
@@ -26,13 +32,15 @@ import gsap from 'gsap'
 import {kpiType} from './models/graphtypes'
 import linechart from '../components/linechart.vue'
 import onlineorders from '../components/onlineorders.vue'
+import countries from '../components/countries.vue'
 
 export default defineComponent({
     name: 'dashboard',
     components: {
         kpi,
         linechart,
-        onlineorders
+        onlineorders,
+        countries
     },
     data(): { show: boolean, kpis: kpiType[] } {
         const show = false

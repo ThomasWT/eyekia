@@ -8,7 +8,7 @@
             <caption class="px-5 py-2 text-lg font-semibold text-left text-gray-900 bg-white">
                 <p class="mt-1 text-sm font-normal text-gray-500 ">Recent orders from both online and in store sales</p>
             </caption>
-            <thead class="text-xs text-gray-700 uppercase bg-purple-50 ">
+            <thead class="text-xs text-gray-700 uppercase bg-purple-200 ">
                 <tr>
                     <th scope="col" class="px-6 py-3">
                         Product

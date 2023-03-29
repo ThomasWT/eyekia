@@ -1,5 +1,5 @@
 <template>
-    <div class="navigation h-screen w-96 bg-white rounded-b-2xl relative">
+    <div class="navigation h-screen fixed left-0 w-96 bg-white shadow-lg rounded-2xl">
         <div class="w-full relative self-start">
             <img class="scale-90 -mb-2 -mt-10 w-full" src="/eyekia.svg" />
         </div>
