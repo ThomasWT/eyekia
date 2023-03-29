@@ -1,9 +1,6 @@
 <template>
-    <div
-        class="orders flex flex-col w-[calc(50%-0.75rem)] h-auto bg-white rounded-2xl shadow-lg ml-3 pt-6 pb-4 overflow-hidden">
-        <div class="px-6">
-            <p class="text-gray-500 font-bold mb-2">Orders</p>
-        </div>
+    <tile class="w-[calc(50%-0.75rem)] h-min ml-3">
+        <p class="text-gray-500 font-bold mb-2">Orders</p>
         <table class="w-full text-sm text-left text-gray-500 ">
             <caption class="px-5 py-2 text-lg font-semibold text-left text-gray-900 bg-white">
                 <p class="mt-1 text-sm font-normal text-gray-500 ">Recent orders from both online and in store sales</p>
@@ -33,7 +30,7 @@
                         {{ order.productname }}
                     </th>
                     <td class="px-6 py-4">
-                        {{order.color}}
+                        {{ order.color }}
                     </td>
                     <td class="px-6 py-4">
                         {{ order.soldloc }}
@@ -42,21 +39,26 @@
                         €{{ order.price }}
                     </td>
                     <td class="pr-3 py-4 text-right">
-                        <span :class="{'bg-green-100 text-green-600' : order.state == 'completed', 'bg-yellow-100 text-yellow-600' : order.state == 'awaiting', 'bg-red-100 text-red-500' : order.state == 'cancelled'}" class="text-sm font-medium px-2.5 py-0.5 rounded capitalize shadow-sm">{{ order.state }}</span>
+                        <span
+                            :class="{ 'bg-green-100 text-green-600': order.state == 'completed', 'bg-yellow-100 text-yellow-600': order.state == 'awaiting', 'bg-red-100 text-red-500': order.state == 'cancelled' }"
+                            class="text-sm font-medium px-2.5 py-0.5 rounded capitalize shadow-sm">{{ order.state }}</span>
                     </td>
                 </tr>
-               
+
             </tbody>
         </table>
-    </div>
+    </tile>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { order } from '../dashboards/models/graphtypes'
-
+import tile from './tile.vue'
 export default defineComponent({
     name: 'onlineorders',
+    components: {
+        tile
+    },
     data(): { orders: order[] } {
         const orders = [
             {
