@@ -1,6 +1,6 @@
 <template>
     <div
-        class="linechart flex flex-col w-[calc(50%-0.75rem)] h-auto bg-white rounded-2xl shadow-lg mr-3 pt-6 pb-4 overflow-hidden">
+        class="linechart flex flex-col w-[calc(50%-0.75rem)] h-min bg-white rounded-2xl shadow-lg mr-3 pt-6 pb-4 overflow-hidden">
         <div class="px-6">
             <div class="topbar flex justify-between">
                 <p class="text-gray-500 font-bold mb-2">Forecast</p>
