@@ -19,7 +19,7 @@
                     <apexchart type="radialBar" width="200px" height="100" :options="chartOptions" :series="stores"></apexchart>
                 </div>
             </div>
-            <div class="w-1/3 bg-gradient-to-r from-purple-500 via-purple-600 to-purple-800 rounded-2xl shadow-lg flex flex-col justify-center items-center">
+            <div class="w-1/3 bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 rounded-2xl shadow-lg flex flex-col justify-center items-center">
                 <p class="text-2xl font-bold text-white">Total revenue</p>
                 <p class="text-md text-white">of this month</p>
                 <p class="text-2xl font-bold text-white mt-4">€38527</p>
