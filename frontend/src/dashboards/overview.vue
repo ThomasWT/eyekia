@@ -2,10 +2,10 @@
     <div>
         <h1 class="font-bold text-4xl mb-6">Overview</h1>
         <div class="kpi mb-12">
-            <TransitionGroup class="flex" name="slide-fade" tag="div" :css="false" @enter="onEnter">
+            <transition-group class="flex" name="slide-fade" tag="div" :css="false" @enter="onEnter">
                 <kpi class="opacity-0" :class="[index == 0 ? 'ml-0' : '', index == 3 ? 'mr-0' : '']" v-show="show"
-                    :data-index="index" v-for="(kpi, index) in kpis" :metricData="kpi" :key="kpi"></kpi>
-            </TransitionGroup>
+                    :data-index="index" v-for="(kpi, index) in kpis" :metricData="kpi" :key="index"></kpi>
+            </transition-group>
         </div>
 
         <div class="charts flex">

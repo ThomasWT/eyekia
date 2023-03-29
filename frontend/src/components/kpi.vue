@@ -9,13 +9,17 @@
                         <numberComponent :val="metricData.metric"></numberComponent>
                     </p>
                 </div>
-                <transitionGroup name="slide-fade">
+                <div class="flex flex-col">
+                    <transition-group name="slide-fade">
                     <div v-show="badge" class="px-2 font-bold rounded-md  text-sm py-1 shadow-md text-center"
                         :class="[metricData.compare < 0 ? 'bg-red-100 text-red-400' : 'bg-green-100 text-green-600']">
-                        <numberComponent :val="metricData.compare" :duration="1" :delay="0"></numberComponent>% {{ metricData.compare < 0
-                            ? 'decrease' : 'increase' }} </div>
-                            <p class="font-light text-xs text-gray-400 mt-2">compared to {{ metricData.comparedTo }}</p>
-                </transitionGroup>
+                        <numberComponent :val="metricData.compare" :duration="1" :delay="0"></numberComponent>% {{
+                            metricData.compare < 0 ? 'decrease' : 'increase' }}
+                    </div>
+                    <p class="font-light text-xs text-gray-400 mt-2">compared to {{ metricData.comparedTo }}</p>
+                </transition-group>
+                </div>
+             
 
             </div>
         </div>
@@ -30,7 +34,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import numberComponent from './numberComponent.vue';
-import {kpiType}  from '../dashboards/models/graphtypes';
+import { kpiType } from '../dashboards/models/graphtypes';
 interface series {
     name: string,
     data: number[]
