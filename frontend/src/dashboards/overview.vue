@@ -8,9 +8,12 @@
             </TransitionGroup>
         </div>
 
-        <div class="linechart">
+        <div class="charts flex">
             <transition name="slide-fade">
                 <linechart></linechart>
+            </transition>
+            <transition name="slide-fade">
+                <onlineorders></onlineorders>
             </transition>
         </div>
     </div>
@@ -22,12 +25,14 @@ import kpi from '../components/kpi.vue'
 import gsap from 'gsap'
 import {kpiType} from './models/graphtypes'
 import linechart from '../components/linechart.vue'
+import onlineorders from '../components/onlineorders.vue'
 
 export default defineComponent({
     name: 'dashboard',
     components: {
         kpi,
-        linechart
+        linechart,
+        onlineorders
     },
     data(): { show: boolean, kpis: kpiType[] } {
         const show = false

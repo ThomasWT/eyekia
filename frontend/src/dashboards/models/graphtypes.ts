@@ -9,3 +9,11 @@ export interface series {
     name: string,
     data: number[]
 }
+
+export interface order {
+    productname: string,
+    color: string,
+    soldloc: string,
+    price: number,
+    state: string
+}
