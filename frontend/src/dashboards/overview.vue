@@ -1,10 +1,18 @@
 <template>
     <div>
         <h1 class="font-bold text-4xl mb-6">Overview</h1>
-        <TransitionGroup class="flex" name="slide-fade" tag="div" :css="false" @enter="onEnter">
-            <kpi class="opacity-0" :class="[index == 0 ? 'ml-0' : '', index == 3 ? 'mr-0' : '']" v-show="show"
-                :data-index="index" v-for="(kpi, index) in kpis" :metricData="kpi" :key="kpi"></kpi>
-        </TransitionGroup>
+        <div class="kpi mb-12">
+            <TransitionGroup class="flex" name="slide-fade" tag="div" :css="false" @enter="onEnter">
+                <kpi class="opacity-0" :class="[index == 0 ? 'ml-0' : '', index == 3 ? 'mr-0' : '']" v-show="show"
+                    :data-index="index" v-for="(kpi, index) in kpis" :metricData="kpi" :key="kpi"></kpi>
+            </TransitionGroup>
+        </div>
+
+        <div class="linechart">
+            <transition name="slide-fade">
+                <linechart></linechart>
+            </transition>
+        </div>
     </div>
 </template>
 
@@ -12,12 +20,14 @@
 import { defineComponent } from 'vue';
 import kpi from '../components/kpi.vue'
 import gsap from 'gsap'
-import kpiType from './models/kpi'
+import {kpiType} from './models/graphtypes'
+import linechart from '../components/linechart.vue'
 
 export default defineComponent({
     name: 'dashboard',
     components: {
-        kpi
+        kpi,
+        linechart
     },
     data(): { show: boolean, kpis: kpiType[] } {
         const show = false

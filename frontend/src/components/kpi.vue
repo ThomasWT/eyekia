@@ -30,7 +30,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import numberComponent from './numberComponent.vue';
-import kpiType  from '../dashboards/models/kpi';
+import {kpiType}  from '../dashboards/models/graphtypes';
 interface series {
     name: string,
     data: number[]
