@@ -1,8 +1,6 @@
 <template>
-    <div
-        class="orders flex flex-col w-[calc(50%-0.75rem)] h-auto bg-white rounded-2xl shadow-lg ml-3 pt-4 pb-4 overflow-hidden">
-        <div class="px-6 h-full">
-          <div class="flex h-full">
+       <tile class="w-[calc(50%-0.75rem)] h-auto ml-3 pt-4 pb-4">
+        <div class="flex h-full">
             <div class="w-1/3 flex flex-col justify-center items-center">
                 <div class="text-center">
                     <p class="text-2xl font-bold text-purple-500">Online</p>
@@ -25,15 +23,19 @@
                 <p class="text-2xl font-bold text-white mt-4">€38527</p>
             </div>
           </div>
-        </div>
-    </div>
+       </tile>
+
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import tile from './tile.vue'
 
 export default defineComponent({
     name: 'onlinevsstore',
+    components: {
+      tile
+    },
     data(): {stores: number[], online: number[], chartOptions: any} {
  
             const stores = [57];

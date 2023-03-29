@@ -1,40 +1,35 @@
 <template>
-    <div class="kpi flex flex-col w-[25vw] h-36 bg-white rounded-2xl shadow-lg mx-3 pt-4 pb-6 overflow-hidden">
-        <div class="px-6">
-            <p class="text-gray-500 font-bold mb-2">{{ metricData.name }}</p>
-            <div class="flex justify-between items-center">
+    <tile class="w-[calc(25%)] h-36 mx-3 pb-6 pt-3 overflow-y-hidden">
+        <p class="text-gray-500 font-bold mb-2">{{ metricData.name }}</p>
+        <div class="flex justify-between items-center">
 
-                <div class="metric">
-                    <p class="text-5xl font-bold text-purple-500">
-                        <numberComponent :val="metricData.metric"></numberComponent>
-                    </p>
-                </div>
-                <div class="flex flex-col">
-                    <transition-group name="slide-fade">
-                    <div v-show="badge" class="px-2 font-bold rounded-md  text-sm py-1 shadow-md text-center"
+            <div class="metric">
+                <p class="text-5xl font-bold text-purple-500">
+                    <numberComponent :val="metricData.metric"></numberComponent>
+                </p>
+            </div>
+            <div class="flex flex-col">
+                <transition-group name="slide-fade">
+                    <div v-show="badge" :key="0" class="px-2 font-bold rounded-md  text-sm py-1 shadow-md text-center"
                         :class="[metricData.compare < 0 ? 'bg-red-100 text-red-400' : 'bg-green-100 text-green-600']">
                         <numberComponent :val="metricData.compare" :duration="1" :delay="0"></numberComponent>% {{
-                            metricData.compare < 0 ? 'decrease' : 'increase' }}
-                    </div>
-                    <p class="font-light text-xs text-gray-400 mt-2">compared to {{ metricData.comparedTo }}</p>
+                            metricData.compare < 0 ? 'decrease' : 'increase' }} </div>
+                            <p class="font-light text-xs text-gray-400 mt-2" :key="1">compared to {{ metricData.comparedTo
+                            }}</p>
                 </transition-group>
-                </div>
-             
-
             </div>
         </div>
-
         <div>
-            <apexchart width="100%" height="60" type="area" :options="options" :series="series"></apexchart>
-
+            <apexchart class="-ml-6 -mt-2" width="115%" height="72" type="area" :options="options" :series="series"></apexchart>
         </div>
-    </div>
+    </tile>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import numberComponent from './numberComponent.vue';
 import { kpiType } from '../dashboards/models/graphtypes';
+import tile from './tile.vue'
 interface series {
     name: string,
     data: number[]
@@ -49,7 +44,8 @@ export default defineComponent({
         }
     },
     components: {
-        numberComponent
+        numberComponent,
+        tile
     },
     data(): { badge: boolean, options: any, series: series[], randomNumber: number, badgePerc: number } {
         const badge = false;

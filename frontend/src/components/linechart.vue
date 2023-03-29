@@ -1,7 +1,5 @@
 <template>
-    <div
-        class="linechart flex flex-col w-[calc(50%-0.75rem)] h-min bg-white rounded-2xl shadow-lg mr-3 pt-6 pb-4 overflow-hidden">
-        <div class="px-6">
+     <tile class="w-[calc(50%-0.75rem)] h-min mr-3">
             <div class="topbar flex justify-between">
                 <p class="text-gray-500 font-bold mb-2">Forecast</p>
                 <div>
@@ -13,16 +11,20 @@
                 </div>
             </div>
 
-            <apexchart type="line" height="" :options="options" :series="series"></apexchart>
-        </div>
-    </div>
+            <apexchart type="line" height="310" :options="options" :series="series"></apexchart>
+    </tile>
 </template>
 
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import { series } from '../dashboards/models/graphtypes'
+import tile from './tile.vue'
 
 export default defineComponent({
+    name: "linechart",
+    components: {
+        tile
+    },
     data(): { options: any, series: series[] } {
         const options = {
             chart: {

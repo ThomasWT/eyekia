@@ -1,8 +1,8 @@
 <template>
     <div class="dashboard flex bg-purple-50 h-auto min-h-screen">
        <navigation />
-        <div class="ml-[23rem] px-12 pt-8 w-[calc(100vw-24rem)]">
-            <router-view></router-view>
+        <div class="ml-[25rem] px-12 pt-6 w-[calc(100vw-27rem)] flex flex-wrap">
+            <router-view class=" flex flex-wrap w-full flex-col"></router-view>
         </div>
     </div>
 </template>

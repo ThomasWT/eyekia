@@ -1,7 +1,6 @@
 <template>
-    <div class="kpi flex flex-col w-[calc(50%-0.75rem)] h-auto bg-white rounded-2xl shadow-lg mr-3 pt-4 pb-1 overflow-hidden">
-        <div class="px-6">
-            <p class="text-gray-500 font-bold">
+    <tile class="w-[calc(50%-0.75rem)] h-auto mr-3 pt-4 pb-1">
+        <p class="text-gray-500 font-bold">
             Global performance
         </p>
         <p class="text-sm text-gray-400">Earnings progress towards target</p>
@@ -12,18 +11,18 @@
                 </div>
                 <p class="ml-4 text-sm text-gray-500">{{country.amount}}%</p>
             </div>
-        </div>
-    </div>
+    </tile>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import CountryFlag from 'vue-country-flag-next'
-
+import tile from './tile.vue'
 export default defineComponent({
     name: 'countries',
     components: {
-        CountryFlag
+        CountryFlag,
+        tile
     },
     data(): {countries: any} {
         const countries = [
