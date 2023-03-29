@@ -5,14 +5,20 @@
             <div class="flex justify-between items-center">
 
                 <div class="metric">
-                    <p class="text-5xl font-bold text-purple-500">25</p>
+                    <p class="text-5xl font-bold text-purple-500">
+                        <numberComponent :val="randomNumber"></numberComponent>
+                    </p>
                 </div>
-                <transition name="slide-fade">
-                    <div v-show="badge" class="bg-green-300 px-2 font-bold rounded-md text-green-600 text-sm py-1 shadow-lg">
-                    19% increase
-                </div>
-                </transition>
-            
+                <transitionGroup name="slide-fade">
+                    <div v-show="badge"
+                        class="px-2 font-bold rounded-md  text-sm py-1 shadow-lg text-center"
+                        :class="[badgePerc < 0 ? 'bg-red-300 text-red-600' : 'bg-green-300 text-green-600']"
+                        >
+                        <numberComponent :val="badgePerc" :duration="1" :delay="0.5"></numberComponent>% {{ badgePerc < 0 ? 'decrease' : 'increase' }}
+                    </div>
+                    <p class="font-light text-xs text-gray-400 mt-2">compared to yesterday</p>
+                </transitionGroup>
+
             </div>
         </div>
 
@@ -25,6 +31,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import numberComponent from './numberComponent.vue';
 
 interface series {
     name: string,
@@ -33,7 +40,10 @@ interface series {
 
 export default defineComponent({
     name: 'dashboard',
-    data(): { badge: boolean, options: any, series: series[] } {
+    components: {
+        numberComponent
+    },
+    data(): { badge: boolean, options: any, series: series[], randomNumber: number, badgePerc: number } {
         const badge = false;
         const options = {
             chart: {
@@ -65,7 +75,7 @@ export default defineComponent({
                 padding: {
                     left: -10,
                     right: -10,
-                    bottom: -12,
+                    bottom: -7,
                     top: -10
                 },
             },
@@ -89,13 +99,17 @@ export default defineComponent({
             name: 'series-1',
             data: [Math.floor(Math.random() * 101), Math.floor(Math.random() * 101), Math.floor(Math.random() * 101), Math.floor(Math.random() * 101), Math.floor(Math.random() * 101), Math.floor(Math.random() * 101), Math.floor(Math.random() * 101),]
         }]
-        return { options, series, badge };
+
+        const randomNumber = Math.random() * 99
+        const badgePerc = parseInt(Math.ceil(Math.random() * 99) * (Math.round(Math.random()) ? 1 : -1))
+
+        return { options, series, badge, randomNumber, badgePerc };
     },
     mounted() {
         setTimeout(() => {
             this.badge = true;
         }, 200)
-      
+
     }
 })
 </script>

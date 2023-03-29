@@ -6,6 +6,7 @@ import pages from './routes'
 import axios from 'axios'
 import VueApexCharts from "vue3-apexcharts";
 
+import VueNumber from 'vue-number-animation'
 
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -31,9 +32,9 @@ async function validateAuth() {
   if(sessionStorage.getItem('token')) {
     return axios.post('http://localhost:3000/auth/validatetoken', {
       token: sessionStorage.getItem('token')
-    }).then((res) => {
+    }).then(() => {
       return true
-    }).catch(err => {
+    }).catch(() => {
       return false
     })
   }
@@ -55,4 +56,4 @@ router.beforeEach(async (to, from) => {
   }
 })
 
-createApp(App).use(router).use(VueApexCharts).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
+createApp(App).use(router).use(VueApexCharts).use(VueNumber).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
