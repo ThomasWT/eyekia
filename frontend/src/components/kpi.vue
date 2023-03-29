@@ -108,7 +108,7 @@ export default defineComponent({
         }]
 
         const randomNumber = Math.random() * 99
-        const badgePerc = parseInt(Math.ceil(Math.random() * 99) * (Math.round(Math.random()) ? 1 : -1))
+        const badgePerc = Math.ceil(Math.random() * 99) * (Math.round(Math.random()) ? 1 : -1)
 
         return { options, series, badge, randomNumber, badgePerc };
     },
