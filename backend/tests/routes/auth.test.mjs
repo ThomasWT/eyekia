@@ -1,7 +1,11 @@
 import request from "supertest";
-import app from "../../index.mjs";
+import {app, server} from "../../index.mjs";
 
 describe("Login with a valid username and password", () => {
+  afterAll(() => {
+    server.close()
+  })
+
   test("should return a JWT token on successful login", async () => {
     const response = await request(app)
       .post("/auth/login")

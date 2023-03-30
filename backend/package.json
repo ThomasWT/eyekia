@@ -17,7 +17,7 @@
   "main": "index.mjs",
   "scripts": {
     "start": "node index.mjs",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --forceExit"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --forceExit --maxWorkers=1"
   },
   "author": "",
   "license": "ISC",

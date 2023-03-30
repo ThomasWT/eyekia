@@ -27,11 +27,11 @@ app.use((req, res, next) => {
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
-if (process.env.NODE_ENV !== 'test') {
-  app.listen(port, () => {
+
+
+const server = app.listen(port, () => {
     console.log(`Server listening on port ${port}`);
   });
-}
 
 
 // When the app is shutting down, close the MongoDB connection
@@ -42,4 +42,5 @@ process.on('SIGINT', () => {
   });
 });
 
-export default app
+
+export {app, server}

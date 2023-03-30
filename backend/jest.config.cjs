@@ -5,6 +5,7 @@ module.exports = {
       isolatedModules: true,
     },
   },
+  testTimeout: 5000,
   testEnvironment: 'node',
   transform: {
     '^.+\\.(ts|tsx)?$': 'ts-jest',
