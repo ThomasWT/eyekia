@@ -1,4 +1,4 @@
-name: Express server test
+name: Express
 
 on: [push]
 
