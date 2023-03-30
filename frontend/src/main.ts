@@ -15,22 +15,22 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faChartLine, faPeopleGroup, faArrowRightFromBracket, faGears, faCommentDots } from '@fortawesome/free-solid-svg-icons'
+import { faChartLine, faPeopleGroup, faArrowRightFromBracket, faGears, faCommentDots, faLock, faFaceGrinStars, faRocket, faNetworkWired } from '@fortawesome/free-solid-svg-icons'
 import { faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons'
-import { faThumbsUp } from '@fortawesome/free-regular-svg-icons'
+import { faThumbsUp, faFlag, faUser, faCreditCard  } from '@fortawesome/free-regular-svg-icons'
 
 /* add icons to the library */
-library.add(faChartLine, faThumbsUp, faPeopleGroup, faArrowRightFromBracket, faGears, faCommentDots, faTwitter, faLinkedin)
+library.add(faLock, faFaceGrinStars, faRocket, faNetworkWired, faFlag, faUser, faCreditCard, faChartLine, faThumbsUp, faPeopleGroup, faArrowRightFromBracket, faGears, faCommentDots, faTwitter, faLinkedin)
 
 
 const routes = pages
 const router = createRouter({
   history: createWebHistory(),
-  routes, 
+  routes,
 })
 
 async function validateAuth() {
-  if(sessionStorage.getItem('token')) {
+  if (sessionStorage.getItem('token')) {
     return axios.post('http://localhost:3000/auth/validatetoken', {
       token: sessionStorage.getItem('token')
     }).then(() => {
@@ -45,15 +45,15 @@ router.beforeEach(async (to, from) => {
   const tokenValid = await validateAuth()
   if (
     // make sure the user is authenticated
-    !tokenValid && 
+    !tokenValid &&
     // ❗️ Avoid an infinite redirect
     to.path !== '/login'
   ) {
     // redirect the user to the login page
     return { path: '/login' }
   }
-  if(tokenValid && (to.path == '/login' || to.path == '/')) {
-    return {path: '/dashboard/overview'}
+  if (tokenValid && (to.path == '/login' || to.path == '/')) {
+    return { path: '/dashboard/overview' }
   }
 })
 
