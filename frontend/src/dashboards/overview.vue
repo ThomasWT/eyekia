@@ -29,7 +29,7 @@ import StatsService from '../dataservice/stats'
 import { useRoute } from 'vue-router';
 
 export default defineComponent({
-    name: 'dashboard',
+    name: 'overview',
     components: {
         kpi,
         linechart,
