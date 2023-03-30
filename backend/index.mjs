@@ -1,46 +1,45 @@
-import express from 'express';
-import {client, connectToMongoDB} from './connectToDb.mjs'
-import bodyParser from 'body-parser';
-import cors from 'cors';
+import express from "express";
+import { client, connectToMongoDB } from "./connectToDb.mjs";
+import bodyParser from "body-parser";
+import cors from "cors";
 
-import usersRouter from './routes/users.mjs'
-import authRouter from './routes/auth.mjs';
-import statsRouter from './routes/stats.mjs';
+import usersRouter from "./routes/users.mjs";
+import authRouter from "./routes/auth.mjs";
+import statsRouter from "./routes/stats.mjs";
 
 const app = express();
-const port = 3000;
+const port = process.env.NODE_ENV !== "test" ? 3000 : 5742;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
-connectToMongoDB()
+connectToMongoDB();
 
-app.use('/auth', authRouter);
-app.use('/stats', statsRouter);
+app.use("/auth", authRouter);
+app.use("/stats", statsRouter);
 app.use("/users", usersRouter);
-if (process.env.NODE_ENV !== 'test') {
-app.use((req, res, next) => {
-  console.log({type: req.method, path: req.path});
-  next();
-});
+if (process.env.NODE_ENV !== "test") {
+  app.use((req, res, next) => {
+    console.log({ type: req.method, path: req.path });
+    next();
+  });
 }
-app.get('/', (req, res) => {
-  res.send('Hello World!');
+app.get("/", (req, res) => {
+  res.send("Hello World!");
 });
-
 
 const server = app.listen(port, () => {
+  if (process.env.NODE_ENV !== "test") {
     console.log(`Server listening on port ${port}`);
-  });
-
+  }
+});
 
 // When the app is shutting down, close the MongoDB connection
-process.on('SIGINT', () => {
+process.on("SIGINT", () => {
   mongoose.connection.close(() => {
-    console.log('MongoDB connection closed');
+    console.log("MongoDB connection closed");
     process.exit(0);
   });
 });
 
-
-export {app, server}
+export { app, server };
