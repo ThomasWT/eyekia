@@ -9,11 +9,12 @@ import { tokenValidation } from "../token.mjs";
 var router = express.Router();
 
 const usersCollection = client.db("eyekia").collection("stats");
-
+if (process.env.NODE_ENV !== 'test') {
 router.use((req, res, next) => {
   console.log({type: req.method, path: req.path});
   next();
 });
+}
 
 /* GET users listing. */
 router.get("/overview/kpis", async (req, res, next) => {

@@ -18,12 +18,12 @@ const usersCollection = client.db("eyekia").collection("users");
 // Secret key for JWT
 const secretKey = process.env.SECRET;
 const saltRounds = 10;
-
+if (process.env.NODE_ENV !== 'test') {
 router.use((req, res, next) => {
   console.log({type: req.method, path: req.path });
   next();
 });
-
+}
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
 
