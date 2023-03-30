@@ -1,0 +1,36 @@
+name: Express server test
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./backend
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Start server
+      run: npm start &
+      
+    - name: Wait for server to start
+      run: |
+        n=0
+        until [ $n -ge 10 ]
+        do
+          response=$(curl --write-out %{http_code} --silent --output /dev/null localhost:3000)
+          if [ $response -eq 200 ]; then
+            echo "Server started!"
+            exit 0
+          fi
+          echo "Waiting for server to start..."
+          n=$((n+1))
+          sleep 1
+        done
+        echo "Server failed to start"
+        exit 1
