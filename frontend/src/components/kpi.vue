@@ -20,7 +20,7 @@
             </div>
         </div>
         <div>
-            <apexchart class="-ml-6 -mt-2" width="115%" height="72" type="area" :options="options" :series="series"></apexchart>
+            <apexchart class="-ml-6 -mt-2" width="115%" height="60" type="area" :options="options" :series="series"></apexchart>
         </div>
     </tile>
 </template>
