@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="font-bold text-4xl mb-12">Teams</h1>
+        <h1 class="font-bold text-4xl mb-12 dark:text-white">Teams</h1>
         <transition-group class="flex flex-wrap" name="slide-fade" tag="div" :css="false" @enter="onEnterCard">
           <teammember v-show="show" class="mx-3 opacity-0 w-[calc(25%-1.5rem)]" v-for="(manager, index) in managers" :key="index" :data-index="index" :managerid="manager"></teammember>
         </transition-group>

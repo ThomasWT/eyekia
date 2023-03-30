@@ -1,5 +1,5 @@
 <template>
-    <div class="dashboard flex bg-purple-50 h-auto min-h-screen">
+    <div class="dashboard flex bg-purple-50 dark:bg-[#2a2a2a] h-auto min-h-screen">
        <navigation />
         <div class="ml-[25rem] px-12 pt-6 w-[calc(100vw-27rem)] flex flex-wrap">
             <router-view class=" flex flex-wrap w-full flex-col"  v-slot="{ Component }">

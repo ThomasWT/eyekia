@@ -2,7 +2,7 @@
     <tile class="w-[calc(50%-0.75rem)] h-min ml-3">
         <p class="text-gray-500 font-bold mb-2">Orders</p>
         <table class="w-full text-sm text-left text-gray-500 ">
-            <caption class="pr-5 py-2 text-lg font-semibold text-left text-gray-900 bg-white">
+            <caption class="pr-5 py-2 text-lg font-semibold text-left text-gray-900 bg-white dark:bg-[#1d1d1d]">
                 <p class="mt-1 text-sm font-normal text-gray-500 ">Recent orders from both online and in store sales</p>
             </caption>
             <thead class="text-xs text-gray-600 uppercase bg-purple-200 rounded-md">
@@ -25,7 +25,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="order in orders" :key="order.productname" class="bg-white border-b">
+                <tr v-for="order in orders" :key="order.productname" class="bg-white dark:bg-[#1d1d1d] border-b">
                     <th scope="row" class="px-6 py-4 font-bold text-gray-500 whitespace-nowrap">
                         {{ order.productname }}
                     </th>

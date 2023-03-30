@@ -1,5 +1,5 @@
 <template>
-    <div class="navigation h-screen fixed left-0 w-96 bg-white shadow-lg rounded-2xl">
+    <div class="navigation h-screen fixed left-0 w-96 bg-white dark:bg-[#1d1d1d] shadow-lg rounded-2xl">
         <div class="w-full relative self-start">
             <img class="scale-90 -mb-2 -mt-10 w-full" src="/eyekia.svg" />
         </div>
@@ -7,16 +7,16 @@
             <p class="font-bold text-gray-400 mb-2 pl-2">Main menu</p>
             <div class="flex flex-col justify-center w-full">
                 <router-link
-                    class=" w-full py-2 my-2 px-4 rounded-lg flex items-center font-bold text-gray-500 hover:bg-purple-100 transition-all"
-                    :class="{ '!text-purple-500 bg-purple-100': $route.path == link.path }" v-for="link in links"
+                    class=" w-full py-2 my-2 px-4 rounded-lg flex items-center font-bold text-gray-500 hover:bg-purple-100 dark:hover:bg-gray-800 transition-all"
+                    :class="{ '!text-purple-500 bg-purple-100 dark:bg-[#565656] dark:!text-purple-300': $route.path == link.path }" v-for="link in links"
                     :key="link.path" :to="{ path: link.path, replace: false }"> <font-awesome-icon class="mr-3"
                         :icon="link.icon" /> {{ link.name }}</router-link>
             </div>
         </div>
         <div class="pages px-16 flex flex-col justify-start absolute w-full bottom-12">
             <router-link
-                class=" w-full py-2 my-2 px-4 rounded-lg flex items-center font-bold text-gray-500 hover:bg-purple-100 transition-all"
-                :class="{ '!text-purple-500 bg-purple-100': $route.path == '/dashboard/settings' }"
+                class=" w-full py-2 my-2 px-4 rounded-lg flex items-center font-bold text-gray-500 hover:bg-purple-100 transition-all dark:hover:bg-gray-800"
+                :class="{ '!text-purple-500 bg-purple-100 dark:bg-[#565656] dark:!text-purple-300': $route.path == '/dashboard/settings' }"
                 :to="{ path: '/dashboard/settings', replace: false }"> <font-awesome-icon class="mr-3"
                     icon="fa-solid fa-gears" /> Settings</router-link>
             <div @click="logout"
