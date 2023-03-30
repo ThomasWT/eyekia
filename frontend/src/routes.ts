@@ -16,14 +16,17 @@ export default [
     children: [
       {
         path: 'overview',
+        name: 'overview',
         component: overview,
       },
       {
         path: 'socials',
+        name: 'socials',
         component: socials,
       },
       {
         path: 'teams',
+        name: 'teams',
         component: teams,
       },
       {

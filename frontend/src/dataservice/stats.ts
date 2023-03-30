@@ -5,9 +5,9 @@ export default class StatsService {
     private kpis = ref<kpiType[]>();
     private loading = ref<boolean>(false);
 
-    async fetchKpis() {
+    async fetchKpis(path) {
         this.loading.value = true;
-        const response = await axios.get<kpiType[]>('http://localhost:3000/stats/kpis', {
+        const response = await axios.get<kpiType[]>(`http://localhost:3000/stats/${path}/kpis`, {
             headers: {
                 'authorization': sessionStorage.getItem("token")
             }

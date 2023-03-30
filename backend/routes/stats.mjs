@@ -16,7 +16,7 @@ router.use((req, res, next) => {
 });
 
 /* GET users listing. */
-router.get("/kpis", async (req, res, next) => {
+router.get("/overview/kpis", async (req, res, next) => {
   if (tokenValidation(req.headers.authorization, res)) {
     try {
       usersCollection

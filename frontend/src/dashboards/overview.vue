@@ -26,7 +26,7 @@ import onlineorders from '../components/onlineorders.vue'
 import countries from '../components/countries.vue'
 import onlinevsstores from '../components/onlinevsstore.vue'
 import StatsService from '../dataservice/stats'
-
+import { useRoute } from 'vue-router';
 
 export default defineComponent({
     name: 'dashboard',
@@ -39,7 +39,7 @@ export default defineComponent({
     },
     setup() {
     const statsService = new StatsService();
-    statsService.fetchKpis();
+    statsService.fetchKpis(useRoute().name);
 
     return {
       kpis: statsService.getKpis(),
