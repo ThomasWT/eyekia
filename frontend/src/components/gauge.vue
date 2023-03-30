@@ -2,7 +2,7 @@
   <tile class="w-[calc(50%-0.75rem)] h-auto mr-3 place-content-stretch flex-wrap">
     <div class="topbar flex justify-between">
         <p class="text-gray-500 font-bold mb-2">Followers by platform</p>
-      </div>
+    </div>
     <div class="flex">
 
       <apexchart class="w-1/2" type="donut" height="310" :options="options" :series="series"></apexchart>

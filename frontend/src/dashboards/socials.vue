@@ -10,7 +10,7 @@
 
         <transition-group class="flex flex-wrap" name="slide-fade" tag="div" :css="false" @enter="onEnterCard">
             <gauge class="opacity-0 mb-6 mt-4" :data-index="0" :key="0" v-show="show"></gauge>
-            
+            <countryDemographics class="opacity-0 mb-6 mt-4" :data-index="1" :key="1" v-show="show"></countryDemographics>
         </transition-group>
     </div>
 </template>
@@ -19,7 +19,7 @@
 import { defineComponent } from 'vue';
 import kpi from '../components/kpi.vue'
 import gsap from 'gsap'
-import linechart from '../components/linechart.vue'
+import countryDemographics from '../components/countryDemographics.vue'
 import gauge from '../components/gauge.vue'
 import StatsService from '../dataservice/stats'
 import { useRoute } from 'vue-router';
@@ -28,7 +28,7 @@ export default defineComponent({
     name: 'socials',
     components: {
         kpi,
-        linechart,
+        countryDemographics,
         gauge
     },
     setup() {
