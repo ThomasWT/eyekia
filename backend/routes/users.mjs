@@ -36,7 +36,7 @@ router.get("/", async (req, res, next) => {
   }
 });
 
-router.get("/:id", (req, res) => {
+router.get("/user/:id", (req, res) => {
   const { id } = req.params;
 
   try {
@@ -57,6 +57,29 @@ router.get("/:id", (req, res) => {
       });
   } catch (error) {
     res.status(400).send("invalid ID. please use /users/{user.id}");
+  }
+});
+
+/* GET managers listing. */
+router.get("/managers", async (req, res, next) => {
+  if (tokenValidation(req.headers.authorization, res)) {
+    try {
+      usersCollection
+        .find({
+          position: 'manager'
+        }, {
+          projection:{ password: 0 }
+        })
+        .toArray()
+        .then((result) => {
+          res.send(result.map(manager => manager._id));
+        })
+        .catch((err) => {
+          res.status(404).send("No results");
+        });
+    } catch (error) {
+      res.status(500).send("Something went wrong");
+    }
   }
 });
 

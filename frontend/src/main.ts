@@ -15,11 +15,12 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faChartLine, faPeopleGroup, faArrowRightFromBracket, faGears } from '@fortawesome/free-solid-svg-icons'
+import { faChartLine, faPeopleGroup, faArrowRightFromBracket, faGears, faCommentDots } from '@fortawesome/free-solid-svg-icons'
+import { faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faThumbsUp } from '@fortawesome/free-regular-svg-icons'
 
 /* add icons to the library */
-library.add(faChartLine, faThumbsUp, faPeopleGroup, faArrowRightFromBracket, faGears)
+library.add(faChartLine, faThumbsUp, faPeopleGroup, faArrowRightFromBracket, faGears, faCommentDots, faTwitter, faLinkedin)
 
 
 const routes = pages

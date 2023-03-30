@@ -23,3 +23,28 @@ export interface platform {
     followers: number,
     color: string,
 }
+
+export interface manager {
+    _id: string,
+    username: string,
+    image: string,
+    role: number,
+    email: string,
+    title: string,
+    position: string,
+    firstname: string,
+    lastname: string,
+}
+
+export interface teammember {
+    _id: string,
+    username: string,
+    image: string,
+    role: number,
+    email: string,
+    title: string,
+    position: string,
+    location: string,
+    firstname: string,
+    lastname: string,
+}
