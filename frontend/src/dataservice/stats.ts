@@ -20,7 +20,7 @@ export default class StatsService {
       return this.kpis;
     }
 
-    isLoading() {
+    isLoadingKpi() {
         return this.loading;
       }
 }

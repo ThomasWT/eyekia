@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue';
+import { defineComponent } from 'vue';
 import { series } from '../dashboards/models/graphtypes'
 import tile from './tile.vue'
 
@@ -32,6 +32,19 @@ export default defineComponent({
                 toolbar: {
                     show: false
                 },
+                animations: {
+                    enabled: true,
+                    easing: 'easeinout',
+                    speed: 800,
+                    animateGradually: {
+                        enabled: true,
+                        delay: 1000
+                    },
+                    dynamicAnimation: {
+                        enabled: true,
+                        speed: 350
+                    }
+                }
             },
             forecastDataPoints: {
                 count: 7
