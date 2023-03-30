@@ -9,7 +9,7 @@
         </div>
 
         <transition-group class="flex flex-wrap" name="slide-fade" tag="div" :css="false" @enter="onEnterCard">
-            <linechart class="opacity-0 mb-6 mt-4" :data-index="0" :key="0" v-show="show"></linechart>
+            <forecastComponent class="opacity-0 mb-6 mt-4" :data-index="0" :key="0" v-show="show"></forecastComponent>
             <onlineorders class="opacity-0 mb-6 mt-4" :data-index="1" :key="1" v-show="show"></onlineorders>
             <countries class="opacity-0" :data-index="2" :key="2" v-show="show"></countries>
             <onlinevsstores class="opacity-0" :data-index="3" :key="3" v-show="show"></onlinevsstores>
@@ -21,7 +21,7 @@
 import { defineComponent } from 'vue';
 import kpi from '../components/kpi.vue'
 import gsap from 'gsap'
-import linechart from '../components/linechart.vue'
+import forecastComponent from '../components/forecastComponent.vue'
 import onlineorders from '../components/onlineorders.vue'
 import countries from '../components/countries.vue'
 import onlinevsstores from '../components/onlinevsstore.vue'
@@ -32,7 +32,7 @@ export default defineComponent({
     name: 'overview',
     components: {
         kpi,
-        linechart,
+        forecastComponent,
         onlineorders,
         countries,
         onlinevsstores

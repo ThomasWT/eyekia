@@ -12,6 +12,7 @@
             <gauge class="opacity-0 mb-6 mt-4" :data-index="0" :key="0" v-show="show"></gauge>
             <countryDemographics class="opacity-0 mb-6 mt-4" :data-index="1" :key="1" v-show="show"></countryDemographics>
             <ageDemographic  class="opacity-0 mb-6" :data-index="2" :key="2" v-show="show"></ageDemographic>
+            <engagementComponent  class="opacity-0 mb-6" :data-index="3" :key="3" v-show="show"></engagementComponent>
         </transition-group>
     </div>
 </template>
@@ -22,6 +23,7 @@ import kpi from '../components/kpi.vue'
 import gsap from 'gsap'
 import countryDemographics from '../components/countryDemographics.vue'
 import ageDemographic from '../components/ageDemographic.vue'
+import engagementComponent from '../components/engagementComponent.vue'
 import gauge from '../components/gauge.vue'
 import StatsService from '../dataservice/stats'
 import { useRoute } from 'vue-router';
@@ -32,7 +34,8 @@ export default defineComponent({
         kpi,
         countryDemographics,
         ageDemographic,
-        gauge
+        gauge,
+        engagementComponent
     },
     setup() {
     const statsService = new StatsService();
