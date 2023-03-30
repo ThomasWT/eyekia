@@ -15,8 +15,11 @@ jobs:
     - name: Install dependencies
       run: npm install
       
-    - name: Start server
+    - name: tests
       run: npm start &
+
+    - name: Start server
+      run: npm test
       
     - name: Wait for server to start
       run: |

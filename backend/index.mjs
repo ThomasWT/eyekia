@@ -18,19 +18,21 @@ connectToMongoDB()
 app.use('/auth', authRouter);
 app.use('/stats', statsRouter);
 app.use("/users", usersRouter);
-
+if (process.env.NODE_ENV !== 'test') {
 app.use((req, res, next) => {
   console.log({type: req.method, path: req.path});
   next();
 });
-
+}
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
+if (process.env.NODE_ENV !== 'test') {
+  app.listen(port, () => {
+    console.log(`Server listening on port ${port}`);
+  });
+}
 
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
-});
 
 // When the app is shutting down, close the MongoDB connection
 process.on('SIGINT', () => {
@@ -39,3 +41,5 @@ process.on('SIGINT', () => {
     process.exit(0);
   });
 });
+
+export default app
