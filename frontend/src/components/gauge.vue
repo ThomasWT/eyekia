@@ -17,7 +17,7 @@ export default defineComponent({
     components: {
         tile
     },
-    data(): { options: any, series: series } {
+    data(): { options: any, series: number[] } {
         const options = {
             chart: {
               type: 'donut',
