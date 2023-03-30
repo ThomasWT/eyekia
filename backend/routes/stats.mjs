@@ -18,8 +18,11 @@ router.get("/kpis", async (req, res, next) => {
         .find({
             "name" : {
             "$in" : 
-              [({name: "Sales online"}), 
-               ({name: "Sales In Stores"})
+              [
+                "Sales online", 
+               "Sales In Stores",
+               "Social engagements",
+               "Solved support tickets"
               ]
            } 
             })
