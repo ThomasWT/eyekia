@@ -64,10 +64,6 @@ Frontend:
 - axios
 - tailwind
 
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
 ## Author
 
 This project was created by Thomas Thomsen.
