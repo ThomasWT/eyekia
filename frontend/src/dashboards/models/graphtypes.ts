@@ -17,3 +17,9 @@ export interface order {
     price: number,
     state: string
 }
+
+export interface platform {
+    platform: string,
+    followers: number,
+    color: string,
+}
