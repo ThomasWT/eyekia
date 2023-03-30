@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="font-bold text-4xl mb-2">Overview</h1>
+        <h1 class="font-bold text-4xl">Overview</h1>
         <div v-show="!isLoadingKpi" class="kpi mb-12 w-full">
             <transition-group class="flex w-full" name="slide-fade" tag="div" :css="false" @enter="onEnterKpi">
                 <kpi class="opacity-0" :class="[(index == 0 ? 'ml-0' : ''), (index == 3 ? 'mr-0' : '')]" v-show="show"
@@ -11,8 +11,8 @@
         <transition-group class="flex flex-wrap" name="slide-fade" tag="div" :css="false" @enter="onEnterCard">
             <gauge class="opacity-0 mb-6 mt-4" :data-index="0" :key="0" v-show="show"></gauge>
             <countryDemographics class="opacity-0 mb-6 mt-4" :data-index="1" :key="1" v-show="show"></countryDemographics>
-            <ageDemographic  class="opacity-0 mb-6" :data-index="2" :key="2" v-show="show"></ageDemographic>
-            <engagementComponent  class="opacity-0 mb-6" :data-index="3" :key="3" v-show="show"></engagementComponent>
+            <ageDemographic  class="opacity-0" :data-index="2" :key="2" v-show="show"></ageDemographic>
+            <engagementComponent  class="opacity-0" :data-index="3" :key="3" v-show="show"></engagementComponent>
         </transition-group>
     </div>
 </template>
