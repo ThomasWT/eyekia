@@ -1,5 +1,8 @@
 # eyekia
 
+![Frontend](https://github.com/ThomasWT/eyekia/actions/workflows/frontend.js.yml/badge.svg)
+![Backend](https://github.com/ThomasWT/eyekia/actions/workflows/backend.js.yml/badge.svg)
+
 eyekia is a dashboard application for a fictional company named eyekia, which displays ecommerce statistics. It is built using Vue 3 and Express as the backend, and uses MongoDB and Mongoose for data storage and retrieval.
 
 ## Installation
