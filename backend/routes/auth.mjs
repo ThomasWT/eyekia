@@ -12,12 +12,17 @@ const router = express.Router();
 router.use(bodyParser.json());
 router.use(bodyParser.urlencoded({ extended: true }));
 
-// Replace this with your own user model
+
 const usersCollection = client.db("eyekia").collection("users");
 
 // Secret key for JWT
 const secretKey = process.env.SECRET;
 const saltRounds = 10;
+
+router.use((req, res, next) => {
+  console.log({type: req.method, path: req.path });
+  next();
+});
 
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;

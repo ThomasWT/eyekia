@@ -10,6 +10,11 @@ var router = express.Router();
 
 const usersCollection = client.db("eyekia").collection("users");
 
+router.use((req, res, next) => {
+  console.log({type: req.method, path: req.path});
+  next();
+});
+
 /* GET users listing. */
 router.get("/", async (req, res, next) => {
   if (tokenValidation(req.headers.authorization, res)) {

@@ -19,6 +19,11 @@ app.use('/auth', authRouter);
 app.use('/stats', statsRouter);
 app.use("/users", usersRouter);
 
+app.use((req, res, next) => {
+  console.log({type: req.method, path: req.path});
+  next();
+});
+
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
