@@ -3,7 +3,7 @@
         <div class="flex">
             <p class="text-gray-500 font-bold mb-2">Followers by location</p>
         </div>
-        <div class="flex h-full">
+        <div class="flex h-auto">
             <div class="w-2/3">
                 <div class="h-full" id="svgMap"></div>
             </div>
