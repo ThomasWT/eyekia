@@ -62,7 +62,7 @@ if(!('theme' in localStorage)) {
   //default
   localStorage.theme = 'light'
 } else {
-  if(localStorage.theme = 'dark') {
+  if(localStorage.theme == 'dark') {
     document.documentElement.classList.add('dark')
   } else {
     document.documentElement.classList.remove('dark')
