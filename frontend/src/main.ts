@@ -57,15 +57,16 @@ router.beforeEach(async (to, from) => {
   }
 })
 
+//handle darkmode on entry
 if(!('theme' in localStorage)) {
+  //default
   localStorage.theme = 'light'
-}
-
-//darkmode
-if ((!('theme' in localStorage))) {
-  document.documentElement.classList.add('dark')
 } else {
-  document.documentElement.classList.remove('dark')
+  if(localStorage.theme = 'dark') {
+    document.documentElement.classList.add('dark')
+  } else {
+    document.documentElement.classList.remove('dark')
+  }
 }
 
 createApp(App).use(router).use(VueApexCharts).use(VueNumber).component('font-awesome-icon', FontAwesomeIcon).mount('#app')
