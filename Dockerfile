@@ -35,7 +35,7 @@ RUN npm install
 COPY frontend/ .
 
 # Build the frontend assets
-RUN npm run build
+RUN npm run builddev
 
 # Use a lightweight image for the production build
 FROM nginx:alpine

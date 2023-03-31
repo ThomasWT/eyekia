@@ -9,7 +9,7 @@ import statsRouter from "./routes/stats.mjs";
 import { mongoose } from "mongoose";
 
 import dotenv from 'dotenv';
-dotenv.config({path:'./backend/.env'});
+dotenv.config({path:'./.env'});
 
 const app = express();
 const port = process.env.NODE_ENV !== "test" ? process.env.PORT : 5742;
