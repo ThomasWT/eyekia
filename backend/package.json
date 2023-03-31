@@ -17,7 +17,8 @@
   "main": "index.mjs",
   "scripts": {
     "start": "node index.mjs",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --forceExit --maxWorkers=1"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --forceExit --maxWorkers=1",
+    "start:all": "concurrently \"npm run start\" \"cd ../frontend && npm run dockerserver\""
   },
   "author": "",
   "license": "ISC",

@@ -8,6 +8,7 @@
     "prod": "vite --mode production",
     "build": "vue-tsc && vite build",
     "builddev": "vue-tsc && vite build --mode development",
+    "dockerserver": "vite --mode development --port 80 --host",
     "preview": "vite preview"
   },
   "dependencies": {
