@@ -55,7 +55,7 @@ Hosted on localhost port 80
 docker build -t eyekia .
 ```
 ```
-docker run --rm -it -d -p 80:80/tcp -p 3000:3000/tcp eyekia:lates
+docker run --rm -d -p 80:80/tcp -p 3000:3000/tcp eyekia:lates
 ```
 
 
