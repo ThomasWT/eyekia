@@ -43,12 +43,6 @@ cd frontend
 npm run dev
 ```
 
-## Login
-
-username: thomas
-
-password: 123
-
 ## Features
 
 The eyekia dashboard application includes some the following features:
