@@ -1,8 +1,7 @@
 import { client } from "../connectToDb.mjs";
 import express from "express";
 import { tokenValidation } from "../token.mjs";
-import cors from "cors";
-router.use(cors());
+
 var router = express.Router();
 
 const usersCollection = client.db("eyekia").collection("stats");

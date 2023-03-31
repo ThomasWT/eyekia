@@ -1,8 +1,7 @@
 import { client } from "../connectToDb.mjs";
 import express from "express";
 import { ObjectId } from "mongodb";
-import cors from "cors";
-router.use(cors());
+
 import { tokenValidation } from "../token.mjs";
 
 var router = express.Router();
