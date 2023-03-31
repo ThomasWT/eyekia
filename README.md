@@ -14,6 +14,17 @@ Check it out here https://eyekia.thomaswt.com
 
 **Password:** 123
 
+## Pipeline and hosting
+
+Pipelines and build process for frontend is handled by [Netlify](https://www.netlify.com/)
+
+Pipelines and build process for backend is handled by [Buddy](https://buddy.works/)
+
+
+Backend is hosted on [Digitalocean](https://www.digitalocean.com/)
+
+Frontend is hosted on [Netlify](https://www.netlify.com/)
+
 ## Installation
 
 To install the necessary dependencies, run the following command in the both the backend and frontend folder:
