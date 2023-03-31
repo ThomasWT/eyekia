@@ -65,7 +65,7 @@ export default defineComponent({
   methods: {
         login() {
             this.loading = true;
-            axios.post('http://localhost:3000/auth/login', {
+            axios.post(`${import.meta.env.VITE_API}/auth/login`, {
                 "username": this.username,
                 "password": this.password
             }).then(res => {

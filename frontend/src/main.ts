@@ -31,7 +31,7 @@ const router = createRouter({
 
 async function validateAuth() {
   if (sessionStorage.getItem('token')) {
-    return axios.post('http://localhost:3000/auth/validatetoken', {
+    return axios.post(`${import.meta.env.VITE_API}/auth/validatetoken`, {
       token: sessionStorage.getItem('token')
     }).then(() => {
       return true
