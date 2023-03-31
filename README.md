@@ -9,10 +9,10 @@ eyekia is a dashboard application for a fictional company named eyekia, which di
 
 Check it out here https://eyekia.thomaswt.com
 
-**Login details:**
 
-**username:** admin
-**password:** 123
+**Username:** admin
+
+**Password:** 123
 
 ## Installation
 
