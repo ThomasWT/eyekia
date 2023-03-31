@@ -6,6 +6,7 @@ import cors from "cors";
 import usersRouter from "./routes/users.mjs";
 import authRouter from "./routes/auth.mjs";
 import statsRouter from "./routes/stats.mjs";
+import { mongoose } from "mongoose";
 
 import dotenv from 'dotenv';
 dotenv.config({path:'./backend/.env'});
