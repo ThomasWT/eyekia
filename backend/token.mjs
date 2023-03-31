@@ -5,13 +5,16 @@ function tokenValidation(token, res) {
       res.status(401).json({ message: "No token provided" });
     }
     
-    return jwt.verify(token, process.env.SECRET, (err, decoded) => {
-      if (err) {
-        res.status(401).json({ message: "Invalid token" });
-      } else {
-        return true
-      }
-    });
+    if(token) {
+      return jwt.verify(token, process.env.SECRET, (err, decoded) => {
+        if (err) {
+          res.status(401).json({ message: "Invalid token" });
+        } else {
+          return true
+        }
+      });
+    }
+
 }
 
 function generateToken(userid, expiresIn="1h",) {
