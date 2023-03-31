@@ -1,8 +1,6 @@
 import { client } from "../connectToDb.mjs";
 import express from "express";
 import { ObjectId } from "mongodb";
-import dotenv from "dotenv";
-dotenv.config();
 
 import { tokenValidation } from "../token.mjs";
 

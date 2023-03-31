@@ -2,8 +2,6 @@ import express from "express";
 import bcrypt from "bcryptjs";
 import bodyParser from "body-parser";
 import { client } from "../connectToDb.mjs";
-import dotenv from 'dotenv';
-dotenv.config();
 
 import { tokenValidation, generateToken } from "../token.mjs";
 

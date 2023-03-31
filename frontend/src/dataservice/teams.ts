@@ -5,10 +5,10 @@ export default class TeamsService {
     private managers: Ref<string[]> = ref([]);
     private loading = ref<boolean>(false);
     private user = ref<teammember>()
-
+    private apiurl =  import.meta.env.VITE_API;
     async fetchManagers() {
         this.loading.value = true;
-        const response = await axios.get<string[]>(`http://localhost:3000/users/managers`, {
+        const response = await axios.get<string[]>(`${this.apiurl}/users/managers`, {
             headers: {
                 'authorization': sessionStorage.getItem("token")
             }
