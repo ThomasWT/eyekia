@@ -50,7 +50,7 @@ npm run dev
 ```
 
 ### Or docker
-Hosted on localhost port 80
+Frontend hosted on port 80 with a local backend hosted on port 3000
 ```
 docker build -t eyekia .
 ```
