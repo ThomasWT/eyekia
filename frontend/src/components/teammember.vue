@@ -1,31 +1,31 @@
 <template>
-    <div class="flex flex-col bg-white rounded-lg p-6 shadow-lg w-80 h-auto mb-6">
+    <div class="flex flex-col bg-white dark:bg-[#1d1d1d] rounded-lg p-6 shadow-lg w-80 h-auto mb-6">
         <div class="flex flex-col">
             <div class="meta flex flex-col relative">
                 <img class="w-20 h-20 rounded-md mb-4" :src="teammember?.image" />
-                <p class="text-gray-600 font-bold text-2xl capitalize">{{ teammember?.firstname }} {{ teammember?.lastname }}</p>
+                <p class="text-gray-600 font-bold text-2xl capitalize dark:text-gray-300">{{ teammember?.firstname }} {{ teammember?.lastname }}</p>
                 <p class="text-gray-400 font-bold text-md">{{ teammember?.location }}</p>
             </div>
             <div class="socials flex justify-between items-center">
                 <div class="flex my-6">
-                    <a class="bg-purple-100 mr-1 p-2 px-4 rounded-md hover:bg-purple-200" href="#"><font-awesome-icon class="text-purple-400"
+                    <a class="bg-purple-100 dark:bg-[#555555] mr-1 p-2 px-4 rounded-md hover:bg-purple-200" href="#"><font-awesome-icon class="text-purple-400 dark:text-[#969696]"
                             icon="fa-brands fa-twitter" /></a>
-                    <a class="bg-purple-100 mx-2 p-2 px-4 rounded-md hover:bg-purple-200" href="#"><font-awesome-icon class="text-purple-400"
+                    <a class="bg-purple-100 dark:bg-[#555555] mx-2 p-2 px-4 rounded-md hover:bg-purple-200" href="#"><font-awesome-icon class="text-purple-400 dark:text-[#969696]"
                             icon="fa-brands fa-linkedin" /></a>
                 </div>
                 <div class="flex">
-                    <a class="bg-purple-100 p-2 px-4 rounded-md hover:bg-purple-200" href="#"><font-awesome-icon class="text-purple-400"
+                    <a class="bg-purple-100 dark:bg-[#555555] p-2 px-4 rounded-md hover:bg-purple-200" href="#"><font-awesome-icon class="text-purple-400 dark:text-[#969696]"
                             icon="fa-solid fa-comment-dots" /></a>
                 </div>
             </div>
             <hr>
             <div class="flex flex-col my-6">
                 <p class="text-gray-400 font-bold">POSITION</p>
-                <p class="text-gray-600 font-bold">{{ teammember?.title }}</p>
+                <p class="text-gray-600 font-bold dark:text-gray-300">{{ teammember?.title }}</p>
             </div>
             <div class="flex flex-col mb-6">
                 <p class="text-gray-400 font-bold">TASKS</p>
-                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                <div class="w-full bg-gray-200 dark:bg-[#626262] rounded-full h-2.5">
                     <div :class="[{ 'bg-orange-500': teamprogress < 40, 'bg-yellow-500': (teamprogress >= 40 && teamprogress <= 70), 'bg-green-500': (teamprogress > 70) }]"
                         class="h-2.5 rounded-full" :style="{ width: teamprogress + '%' }"></div>
                 </div>

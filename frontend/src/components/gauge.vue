@@ -1,7 +1,7 @@
 <template>
   <tile class="w-[calc(50%-0.75rem)] h-auto mr-3 place-content-stretch flex-wrap">
     <div class="topbar flex justify-between">
-        <p class="text-gray-500 font-bold mb-2">Followers by platform</p>
+        <p class="text-gray-500 font-bold mb-2 dark:text-gray-400">Followers by platform</p>
     </div>
     <div class="flex">
 
@@ -9,7 +9,7 @@
       <div class="w-1/2 px-4  grid grid-cols-2 grid-rows-2 content-evenly items-stretch justify-center">
         <div v-for="social in socials" :key="social.platform" class="socialPlatform flex flex-col my-4">
           <p :style="{color: social.color}" class="font-extrabold text-2xl text-[#1877f2]">{{ social.platform }}</p>
-          <p class="text-gray-600 font-bold text-3xl"><numberComponent :val="social.followers"></numberComponent></p>
+          <p class="text-gray-600 font-bold text-3xl dark:text-gray-400"><numberComponent :val="social.followers"></numberComponent></p>
         </div>
       </div>
     </div>
@@ -24,7 +24,7 @@ import tile from './tile.vue'
 import numberComponent from './numberComponent.vue'
 
 export default defineComponent({
-  name: "linechart",
+  name: "followersbyplatform",
   components: {
     tile,
     numberComponent
@@ -55,11 +55,13 @@ export default defineComponent({
     const options = {
       chart: {
         type: 'donut',
-
       },
       legend: {
         show: false
       },
+      stroke:{
+         colors:[localStorage.theme === 'dark' ? '#9ca3af' : '#fff']
+        },
       dataLabels: {
         enabled: true,
         style: {
@@ -109,7 +111,7 @@ export default defineComponent({
                 fontSize: '22px',
                 fontFamily: 'Nunito, Arial, sans-serif',
                 fontWeight: 600,
-                color: '#6b7284',
+                color: localStorage.theme === 'dark' ? '#6b7284' : '#9ca3af',
                 formatter: function (w) {
                   return w.globals.seriesTotals.reduce((a, b) => {
                     return a + b

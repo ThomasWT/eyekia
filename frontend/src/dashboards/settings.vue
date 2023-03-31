@@ -1,23 +1,23 @@
 <template>
     <div class="h-[80%] flex-nowrap">
-        <h1 class="font-bold text-4xl mb-12">Settings</h1>
+        <h1 class="font-bold text-4xl mb-12 dark:text-white">Settings</h1>
         <div class="flex min-h-full">
-            <div class="flex flex-col bg-white shadow-lg h-full rounded-2xl w-72 px-6 mr-6">
+            <div class="flex flex-col bg-white dark:bg-[#1d1d1d] shadow-lg h-full rounded-2xl w-72 px-6 mr-6">
                 <div class="my-6">
                     <input v-model="search" type="text" id="password" placeholder="search"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5 focus:outline-purple-500 placeholder:text-gray-600"
+                        class="bg-gray-50 dark:bg-[#595959] dark:placeholder:text-white border border-gray-300 text-gray-900 text-sm rounded-lg w-full p-2.5 focus:outline-purple-500 placeholder:text-gray-600"
                         required>
                 </div>
                 <div class="flex flex-col">
                     <ul>
-                        <li :class="{ 'bg-purple-100 text-purple-500': activeLink == index }"
-                            class="my-3 text-gray-600 font-bold text-lg hover:bg-purple-200 py-2 px-4 cursor-pointer rounded-lg"
+                        <li :class="{ 'bg-purple-100 dark:bg-[#565656] dark:!text-purple-300 text-purple-500': activeLink == index }"
+                            class="my-3 text-gray-600 font-bold text-lg hover:bg-purple-200 dark:hover:bg-gray-800 py-2 px-4 cursor-pointer rounded-lg dark:text-gray-400"
                             v-for="(link, index) in filteredList" :key="link.text"><font-awesome-icon
                                 class="mr-2 text-purple-400" :icon="link.icon" /> {{ link.text }}</li>
                     </ul>
                 </div>
             </div>
-            <div class="w-full h-full bg-white shadow-lg rounded-2xl p-8">
+            <div class="w-full h-full bg-white dark:bg-[#1d1d1d] shadow-lg rounded-2xl p-8">
                 <component :is="links[activeLink].component"></component>
             </div>
         </div>

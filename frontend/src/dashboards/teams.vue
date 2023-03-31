@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="font-bold text-4xl mb-12">Teams</h1>
+        <h1 class="font-bold text-4xl mb-12 dark:text-white">Teams</h1>
         <transition-group class="flex flex-wrap" name="slide-fade" tag="div" :css="false" @enter="onEnterCard">
           <teammember v-show="show" class="mx-3 opacity-0 w-[calc(25%-1.5rem)]" v-for="(manager, index) in managers" :key="index" :data-index="index" :managerid="manager"></teammember>
         </transition-group>
@@ -13,16 +13,22 @@ import gsap from 'gsap'
 import teammember from '../components/teammember.vue'
 import TeamsService from '../dataservice/teams'
 
+interface TeamSetup {
+  managers: string[] | undefined;
+  isLoadingManagers: boolean;
+}
+
 export default defineComponent({
     name: 'teams',
     components: {
         teammember
     },
-    setup() {
+    setup(): TeamSetup {
     const teamsService = new TeamsService();
     teamsService.fetchManagers();
 
     return {
+    //@ts-ignore
       managers: teamsService.getManagers(),
       isLoadingmanagers: teamsService.isLoadingManagers()
     };

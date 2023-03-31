@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1 class="font-bold text-4xl">Overview</h1>
+        <h1 class="font-bold text-4xl dark:text-white">Socials</h1>
         <div v-show="!isLoadingKpi" class="kpi mb-12 w-full">
             <transition-group class="flex w-full" name="slide-fade" tag="div" :css="false" @enter="onEnterKpi">
                 <kpi class="opacity-0" :class="[(index == 0 ? 'ml-0' : ''), (index == 3 ? 'mr-0' : '')]" v-show="show"

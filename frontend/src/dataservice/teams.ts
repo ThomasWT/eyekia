@@ -1,8 +1,8 @@
 import axios from 'axios';
 import {teammember} from '../dashboards/models/graphtypes'
-import { ref } from 'vue';
+import { ref, Ref } from 'vue';
 export default class TeamsService {
-    private managers = ref<string[]>();
+    private managers: Ref<string[]> = ref([]);
     private loading = ref<boolean>(false);
     private user = ref<teammember>()
 
