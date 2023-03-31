@@ -15,7 +15,9 @@ const port = process.env.NODE_ENV !== "test" ? process.env.PORT : 5742;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({
+  origin: '*'
+}));
 connectToMongoDB();
 
 app.use("/auth", authRouter);
