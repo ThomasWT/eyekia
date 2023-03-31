@@ -57,8 +57,12 @@ router.beforeEach(async (to, from) => {
   }
 })
 
+if(!('theme' in localStorage)) {
+  localStorage.theme = 'light'
+}
+
 //darkmode
-if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+if ((!('theme' in localStorage))) {
   document.documentElement.classList.add('dark')
 } else {
   document.documentElement.classList.remove('dark')
