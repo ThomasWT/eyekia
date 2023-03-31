@@ -2,7 +2,8 @@ import express from "express";
 import bcrypt from "bcryptjs";
 import bodyParser from "body-parser";
 import { client } from "../connectToDb.mjs";
-
+import cors from "cors";
+router.use(cors());
 import { tokenValidation, generateToken } from "../token.mjs";
 
 const router = express.Router();
