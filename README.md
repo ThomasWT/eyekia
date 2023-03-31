@@ -5,6 +5,12 @@
 
 eyekia is a dashboard application for a fictional company named eyekia, which displays ecommerce statistics. It is built using Vue 3 and Express as the backend, and uses MongoDB and Mongoose for data storage and retrieval.
 
+<div id="badges">
+  <a href="https://www.linkedin.com/in/thomasthomsendk/">
+    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
+  </a>
+</div>
+
 ## Demo
 
 Check it out here https://eyekia.thomaswt.com
