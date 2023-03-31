@@ -1,11 +1,14 @@
 import express from "express";
-import { client, connectToMongoDB } from "./connectToDb.mjs";
+import { connectToMongoDB } from "./connectToDb.mjs";
 import bodyParser from "body-parser";
 import cors from "cors";
 
 import usersRouter from "./routes/users.mjs";
 import authRouter from "./routes/auth.mjs";
 import statsRouter from "./routes/stats.mjs";
+
+import dotenv from 'dotenv';
+dotenv.config({path:'./backend/.env'});
 
 const app = express();
 const port = process.env.NODE_ENV !== "test" ? 3000 : 5742;

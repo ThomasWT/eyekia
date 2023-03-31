@@ -4,10 +4,10 @@ import { ref } from 'vue';
 export default class StatsService {
     private kpis = ref<kpiType[]>();
     private loading = ref<boolean>(false);
-
+    private apiurl =  import.meta.env.VITE_API;
     async fetchKpis(path) {
         this.loading.value = true;
-        const response = await axios.get<kpiType[]>(`http://localhost:3000/stats/${path}/kpis`, {
+        const response = await axios.get<kpiType[]>(`${this.apiurl}/stats/${path}/kpis`, {
             headers: {
                 'authorization': sessionStorage.getItem("token")
             }
