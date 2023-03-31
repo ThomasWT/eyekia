@@ -1,3 +1,4 @@
 .vscode
 vetur.config.js
+*/.jest/setEnvVards.cjs
 */node_modules

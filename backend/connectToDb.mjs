@@ -2,7 +2,7 @@
 import {MongoClient} from 'mongodb'
 
 const uri =
-  "mongodb+srv://thomas:Hejmeddig123@cluster0.jewutu1.mongodb.net/?retryWrites=true&w=majority";
+  `mongodb+srv://testuser:${process.env.DBPASSWORD}@cluster0.jewutu1.mongodb.net/?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
