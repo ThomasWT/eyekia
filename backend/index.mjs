@@ -11,7 +11,7 @@ import dotenv from 'dotenv';
 dotenv.config({path:'./backend/.env'});
 
 const app = express();
-const port = process.env.NODE_ENV !== "test" ? 3000 : 5742;
+const port = process.env.NODE_ENV !== "test" ? process.env.PORT : 5742;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
