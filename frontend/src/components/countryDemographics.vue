@@ -1,16 +1,16 @@
 <template>
     <tile class="w-[calc(50%-0.75rem)] h-auto mr-3">
         <div class="flex">
-            <p class="text-gray-500 font-bold mb-2">Followers by location</p>
+            <p class="text-gray-500 font-bold mb-2 dark:text-gray-400">Followers by location</p>
         </div>
         <div class="flex h-auto">
             <div class="w-2/3">
                 <div class="h-full" id="svgMap"></div>
             </div>
             <div class="w-1/3 pl-8">
-                <p class="text-gray-600 font-bold">Top 10 countries</p>
+                <p class="text-gray-600 font-bold dark:text-gray-400">Top 10 countries</p>
                 <ul>
-                    <li class="text-gray-600" v-for="country in countries" :key="country.iso"> <country-flag
+                    <li class="text-gray-600 dark:text-gray-400" v-for="country in countries" :key="country.iso"> <country-flag
                             class="!-mt-3 pr-[52px]" :country="country.iso" size='small' /> {{ country.name }}</li>
                 </ul>
             </div>
@@ -24,6 +24,12 @@ import tile from './tile.vue'
 import svgMap from 'svgmap';
 import 'svgmap/dist/svgMap.min.css';
 import CountryFlag from 'vue-country-flag-next'
+
+interface country {
+    iso: string,
+    name: string,
+}
+
 export default defineComponent({
     name: "mapchart",
     components: {
@@ -31,7 +37,7 @@ export default defineComponent({
         CountryFlag,
         svgMap
     },
-    data(): {countries:any} {
+    data(): {countries:country[]} {
         const countries = [
             { iso: 'dk', name: 'Denmark' },
             { iso: 'ca', name: 'Canada' },
@@ -1229,6 +1235,11 @@ export default defineComponent({
 .svgMap-map-wrapper {
     background-color: white;
 }
+
+.dark .svgMap-map-wrapper {
+    background-color: #1d1d1d;
+}
+
 
 .svgMap-map-controls-wrapper {
     display: none !important;

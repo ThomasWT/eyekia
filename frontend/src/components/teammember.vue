@@ -3,7 +3,7 @@
         <div class="flex flex-col">
             <div class="meta flex flex-col relative">
                 <img class="w-20 h-20 rounded-md mb-4" :src="teammember?.image" />
-                <p class="text-gray-600 font-bold text-2xl capitalize">{{ teammember?.firstname }} {{ teammember?.lastname }}</p>
+                <p class="text-gray-600 font-bold text-2xl capitalize dark:text-gray-300">{{ teammember?.firstname }} {{ teammember?.lastname }}</p>
                 <p class="text-gray-400 font-bold text-md">{{ teammember?.location }}</p>
             </div>
             <div class="socials flex justify-between items-center">
@@ -21,7 +21,7 @@
             <hr>
             <div class="flex flex-col my-6">
                 <p class="text-gray-400 font-bold">POSITION</p>
-                <p class="text-gray-600 font-bold">{{ teammember?.title }}</p>
+                <p class="text-gray-600 font-bold dark:text-gray-300">{{ teammember?.title }}</p>
             </div>
             <div class="flex flex-col mb-6">
                 <p class="text-gray-400 font-bold">TASKS</p>

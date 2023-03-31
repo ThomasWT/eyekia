@@ -1,7 +1,7 @@
 <template>
   <tile class="w-[calc(50%-0.75rem)] h-auto mr-3 place-content-stretch flex-wrap">
     <div class="topbar flex justify-between">
-      <p class="text-gray-500 font-bold mb-2">Followers by age</p>
+      <p class="text-gray-500 font-bold mb-2 dark:text-gray-400">Followers by age</p>
     </div>
     <apexchart class="w-full" type="bar" height="150" :options="options" :series="options.series"></apexchart>
   </tile>
@@ -13,7 +13,7 @@ import tile from './tile.vue'
 import numberComponent from './numberComponent.vue'
 
 export default defineComponent({
-  name: "linechart",
+  name: "agedemographics",
   components: {
     tile,
     numberComponent
@@ -85,6 +85,18 @@ export default defineComponent({
         },
       },
       colors: ["#a855f7"],
+      yaxis: {
+        labels: {
+          style: {
+              colors: localStorage.theme == 'dark' ? ['#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff'] : [],
+              fontSize: '12px',
+              fontFamily: 'Nunito, Arial, sans-serif',
+              fontWeight: 400,
+              cssClass: 'apexcharts-yaxis-label',
+          },
+        }
+  
+      },
       xaxis: {
         type: 'category',
         axisTicks: {
@@ -94,6 +106,15 @@ export default defineComponent({
           height: 6,
           offsetX: 0,
           offsetY: 0
+        },
+        labels: {
+          style: {
+              colors: localStorage.theme == 'dark' ? ['#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff'] : [],
+              fontSize: '12px',
+              fontFamily: 'Nunito, Arial, sans-serif',
+              fontWeight: 400,
+              cssClass: 'apexcharts-yaxis-label',
+          },
         },
         group: {
           style: {

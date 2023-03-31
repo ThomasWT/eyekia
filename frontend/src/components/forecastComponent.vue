@@ -1,10 +1,10 @@
 <template>
      <tile class="w-[calc(50%-0.75rem)] h-min mr-3">
             <div class="topbar flex justify-between">
-                <p class="text-gray-500 font-bold mb-2">Forecast</p>
+                <p class="text-gray-500 font-bold mb-2 dark:text-gray-400">Forecast</p>
                 <div>
                     <select id="countries"
-                        class="border-2 border-purple-300 text-gray-500 rounded-lg px-4 py-2 outline-purple-500 ">
+                        class="border-2 border-purple-300 text-gray-500 rounded-lg px-4 py-2 outline-purple-500 dark:bg-[#5a5a5a] dark:text-white">
                         <option selected>Online</option>
                         <option value="US">Stores</option>
                     </select>
@@ -60,7 +60,14 @@ export default defineComponent({
                 labels: {
                     formatter: function (value: string, timestamp: string, opts: any) {
                         return opts.dateFormatter(new Date(timestamp), 'MMM')
-                    }
+                    },
+                    style: {
+                        colors: localStorage.theme == 'dark' ? ['#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff'] : [],
+                        fontSize: '12px',
+                        fontFamily: 'Nunito, Arial, sans-serif',
+                        fontWeight: 400,
+                        cssClass: 'apexcharts-yaxis-label',
+                    },
                 }
             },
             title: {
@@ -82,6 +89,15 @@ export default defineComponent({
                 enabled: false,
             },
             yaxis: {
+                labels: {
+                    style: {
+                        colors: localStorage.theme == 'dark' ? ['#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff'] : [],
+                        fontSize: '12px',
+                        fontFamily: 'Nunito, Arial, sans-serif',
+                        fontWeight: 400,
+                        cssClass: 'apexcharts-yaxis-label',
+                    },
+                },
                 min: -10,
                 max: 40
             }

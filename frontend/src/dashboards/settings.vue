@@ -10,8 +10,8 @@
                 </div>
                 <div class="flex flex-col">
                     <ul>
-                        <li :class="{ 'bg-purple-100 dark:bg-[#565656] dark:text-purple-300 text-purple-500': activeLink == index }"
-                            class="my-3 text-gray-600 font-bold text-lg hover:bg-purple-200 dark:hover:bg-gray-800 py-2 px-4 cursor-pointer rounded-lg"
+                        <li :class="{ 'bg-purple-100 dark:bg-[#565656] dark:!text-purple-300 text-purple-500': activeLink == index }"
+                            class="my-3 text-gray-600 font-bold text-lg hover:bg-purple-200 dark:hover:bg-gray-800 py-2 px-4 cursor-pointer rounded-lg dark:text-gray-400"
                             v-for="(link, index) in filteredList" :key="link.text"><font-awesome-icon
                                 class="mr-2 text-purple-400" :icon="link.icon" /> {{ link.text }}</li>
                     </ul>

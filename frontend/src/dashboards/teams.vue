@@ -13,16 +13,22 @@ import gsap from 'gsap'
 import teammember from '../components/teammember.vue'
 import TeamsService from '../dataservice/teams'
 
+interface TeamSetup {
+  managers: string[] | undefined;
+  isLoadingManagers: boolean;
+}
+
 export default defineComponent({
     name: 'teams',
     components: {
         teammember
     },
-    setup() {
+    setup(): TeamSetup {
     const teamsService = new TeamsService();
     teamsService.fetchManagers();
 
     return {
+    //@ts-ignore
       managers: teamsService.getManagers(),
       isLoadingmanagers: teamsService.isLoadingManagers()
     };

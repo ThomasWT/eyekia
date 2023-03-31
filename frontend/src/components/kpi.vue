@@ -1,6 +1,6 @@
 <template>
     <tile class="w-[calc(25%)] h-36 mx-3 pb-6 pt-3 overflow-y-hidden">
-        <p class="text-gray-500 font-bold mb-2">{{ metricData.name }}</p>
+        <p class="text-gray-500 font-bold mb-2 dark:text-gray-400">{{ metricData.name }}</p>
         <div class="flex justify-between items-center">
 
             <div class="metric">
