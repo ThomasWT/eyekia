@@ -5,6 +5,15 @@
 
 eyekia is a dashboard application for a fictional company named eyekia, which displays ecommerce statistics. It is built using Vue 3 and Express as the backend, and uses MongoDB and Mongoose for data storage and retrieval.
 
+## Demo
+
+Check it out here https://eyekia.thomaswt.com
+
+**Login details:**
+
+**username:** admin
+**password:** 123
+
 ## Installation
 
 To install the necessary dependencies, run the following command in the both the backend and frontend folder:
