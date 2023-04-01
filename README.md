@@ -20,7 +20,7 @@ Check it out here https://eyekia.thomaswt.com
 
 **Password:** 123
 
-## Pipeline and hosting
+## CI/CD and hosting
 
 Pipelines and build process for frontend is handled by [Netlify](https://www.netlify.com/)
 
