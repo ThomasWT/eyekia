@@ -9,7 +9,7 @@ var router = express.Router();
 const usersCollection = client.db("eyekia").collection("users");
 if (process.env.NODE_ENV !== 'test') {
 router.use((req, res, next) => {
-  console.log({type: req.method, path: req.path});
+  console.log(`[${new Date().toLocaleString().toString()}] ` + JSON.stringify({type: req.method, path: req.path}));
   next();
 });
 }
