@@ -20,7 +20,7 @@ Check it out here https://eyekia.thomaswt.com
 
 **Password:** 123
 
-## Pipeline and hosting
+## CI/CD and hosting
 
 Pipelines and build process for frontend is handled by [Netlify](https://www.netlify.com/)
 
@@ -55,7 +55,7 @@ Frontend hosted on port 80 with a local backend hosted on port 3000
 docker build -t eyekia .
 ```
 ```
-docker run --rm -d -p 80:80/tcp -p 3000:3000/tcp eyekia:lates
+docker run --rm -d -p 80:80/tcp -p 3000:3000/tcp eyekia:latest
 ```
 
 
