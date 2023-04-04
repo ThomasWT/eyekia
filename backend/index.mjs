@@ -26,7 +26,7 @@ app.use("/stats", statsRouter);
 app.use("/users", usersRouter);
 if (process.env.NODE_ENV !== "test") {
   app.use((req, res, next) => {
-    console.log(`[${new Date().toLocaleString().toString()}] ` + JSON.stringify({type: req.method, path: req.path}));
+    console.log(`[${new Date().toLocaleString('da-DK').toString()}] ` + JSON.stringify({type: req.method, path: req.path}));
     next();
   });
 }
