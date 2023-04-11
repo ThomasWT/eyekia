@@ -3,11 +3,11 @@
         <div class="flex">
             <p class="text-gray-500 font-bold mb-2 dark:text-gray-400">Followers by location</p>
         </div>
-        <div class="flex h-auto">
-            <div class="w-2/3">
+        <div class="flex h-auto 3xl:flex-col">
+            <div class="w-2/3 3xl:w-full">
                 <div class="h-full" id="svgMap"></div>
             </div>
-            <div class="w-1/3 pl-8">
+            <div class="w-1/3 3xl:w-full pl-8">
                 <p class="text-gray-600 font-bold dark:text-gray-400">Top 10 countries</p>
                 <ul>
                     <li class="text-gray-600 dark:text-gray-400" v-for="country in countries" :key="country.iso"> <country-flag

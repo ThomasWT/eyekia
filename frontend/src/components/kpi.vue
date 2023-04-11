@@ -1,16 +1,16 @@
 <template>
     <tile class="w-[calc(25%)] h-36 mx-3 pb-6 pt-3 overflow-y-hidden">
-        <p class="text-gray-500 font-bold mb-2 dark:text-gray-400">{{ metricData.name }}</p>
-        <div class="flex justify-between items-center">
+        <p class="text-gray-500 font-bold mb-2 2xl:min-h-[2.5rem] 2xl:mb-4 3xl:mb-3 dark:text-gray-400 3xl:text-sm">{{ metricData.name }}</p>
+        <div class="flex 2xl:flex-col 3xl:mb-3 justify-between items-center">
 
             <div class="metric">
-                <p class="text-5xl font-bold text-purple-500">
+                <p class="text-5xl 2xl:text-5xl 3xl:text-4xl  font-bold text-purple-500">
                     <numberComponent :val="metricData.metric"></numberComponent>
                 </p>
             </div>
-            <div class="flex flex-col text-center">
+            <div class="flex flex-col text-center 3xl:hidden">
                 <transition-group name="slide-fade">
-                    <div v-show="badge" :key="0" class="px-2 font-bold rounded-md  text-sm py-1 shadow-md text-center"
+                    <div v-show="badge" :key="0" class="px-2 font-bold rounded-md text-sm py-1 shadow-md text-center"
                         :class="[metricData.compare < 0 ? 'bg-red-100 text-red-400' : 'bg-green-100 text-green-600']">
                         <numberComponent :val="metricData.compare" :duration="1" :delay="0"></numberComponent>% {{
                             metricData.compare < 0 ? 'decrease' : 'increase' }} </div>
@@ -19,7 +19,7 @@
                 </transition-group>
             </div>
         </div>
-        <div>
+        <div class="2xl:hidden">
             <apexchart class="-ml-6 -mt-2" width="115%" height="60" type="area" :options="options" :series="series"></apexchart>
         </div>
     </tile>
