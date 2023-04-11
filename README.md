@@ -26,10 +26,13 @@ Pipelines and build process for frontend is handled by [Netlify](https://www.net
 
 Pipelines and build process for backend is handled by [Buddy](https://buddy.works/)
 
-
 Backend is hosted on [Digitalocean](https://www.digitalocean.com/)
 
 Frontend is hosted on [Netlify](https://www.netlify.com/)
+
+
+### Github workflow
+https://github.com/ThomasWT/eyekia/actions
 
 ## Installation
 
