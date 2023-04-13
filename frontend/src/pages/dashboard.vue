@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard flex bg-purple-50 dark:bg-[#2a2a2a] h-auto min-h-screen">
     <navigation />
-    <div class="ml-[25rem] px-12 pt-6 w-[calc(100vw-27rem)] flex flex-wrap">
+    <div class="ml-[25rem] 3xl:ml-[18rem] 2xl:ml-[14rem] px-12 pt-6 w-[calc(100vw-27rem)] 3xl:w-[calc(100vw-20rem)] 2xl:w-[calc(100vw-15rem)] flex flex-wrap">
       <router-view class=" flex flex-wrap w-full flex-col" v-slot="{ Component }">
         <transition name="fade">
           <component :is="Component" />

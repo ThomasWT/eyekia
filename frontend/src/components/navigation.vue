@@ -1,9 +1,9 @@
 <template>
-    <div class="navigation h-screen fixed left-0 w-96 bg-white dark:bg-[#1d1d1d] shadow-lg rounded-2xl">
-        <div class="w-full relative justify-center items-center flex my-4">
+    <div class="navigation h-screen fixed left-0 w-96 3xl:w-72 2xl:w-56 bg-white dark:bg-[#1d1d1d] shadow-lg rounded-2xl">
+        <div class="w-full relative justify-center items-center flex my-4 2xl:p-4">
             <img class="w-60" :src="logo" />
         </div>
-        <div class="pages mx-16 flex flex-col justify-start">
+        <div class="pages mx-16 2xl:mx-0 flex flex-col justify-start">
             <p class="font-bold text-gray-400 mb-2 pl-2">Main menu</p>
             <div class="flex flex-col justify-center w-full">
                 <router-link

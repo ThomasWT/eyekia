@@ -7,7 +7,7 @@
             </caption>
             <thead class="text-xs text-gray-600 uppercase bg-purple-200 rounded-md dark:bg-[#4e4e4e] dark:text-white">
                 <tr>
-                    <th scope="col" class="px-6 py-3">
+                    <th scope="col" class="px-6 xl:px-0 py-3">
                         Product
                     </th>
                     <th scope="col" class="px-6 py-3">
@@ -26,16 +26,16 @@
             </thead>
             <tbody>
                 <tr v-for="order in orders" :key="order.productname" class="bg-white dark:bg-[#1d1d1d] border-b">
-                    <th scope="row" class="px-6 py-4 font-bold text-gray-500 whitespace-nowrap">
+                    <td scope="row" class="px-6  2xl:px-0 py-4 font-bold text-gray-500 whitespace-nowrap">
                         {{ order.productname }}
-                    </th>
-                    <td class="px-6 py-4">
+                    </td>
+                    <td class="px-6 py-4 2xl:px-1">
                         {{ order.color }}
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="px-6 py-4 2xl:px-1">
                         {{ order.soldloc }}
                     </td>
-                    <td class="px-6 py-4">
+                    <td class="px-6 py-4 2xl:px-1">
                         €{{ order.price }}
                     </td>
                     <td class="pr-3 py-4 text-right">
