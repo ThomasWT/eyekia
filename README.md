@@ -11,6 +11,19 @@ eyekia is a dashboard application for a fictional company named eyekia, which di
   </a>
 </div>
 
+## Features
+
+The eyekia dashboard application includes some the following features:
+
+- A backend server built with Express.js and MongoDB.
+- Authentication with JWT tokens.
+- Routes for registering and authenticating users.
+- Routes for retrieving ecommerce statistics, such as sales and revenue.
+- Endpoints for retrieving and modifying user information, such as username and password.
+- Password hashing with bcrypt.js.
+- Protected routes that require authentication
+
+
 ## Demo
 
 Check it out here https://eyekia.thomaswt.com
@@ -60,19 +73,6 @@ docker build -t eyekia .
 ```
 docker run --rm -d -p 80:80/tcp -p 3000:3000/tcp eyekia:latest
 ```
-
-
-## Features
-
-The eyekia dashboard application includes some the following features:
-
-- A backend server built with Express.js and MongoDB.
-- Authentication with JWT tokens.
-- Routes for registering and authenticating users.
-- Routes for retrieving ecommerce statistics, such as sales and revenue.
-- Endpoints for retrieving and modifying user information, such as username and password.
-- Password hashing with bcrypt.js.
-- Protected routes that require authentication
 
 ## Author
 
